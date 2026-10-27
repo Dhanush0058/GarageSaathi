@@ -208,3 +208,4 @@ Provide your `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_ANON_KEY`.
 
 - **Zero Client Secrets**: No service-role key or admin secrets are bundled into the mobile code.
 - **Evidence Protection**: Photos and inspection records belong to private buckets with signed URL access and organization-scoped RLS policies.
+

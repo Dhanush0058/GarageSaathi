@@ -3,7 +3,7 @@
 // Provides persistent storage across app restarts, offline inspection drafts,
 // autosave, upload queue management, and sync queues.
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeStorage } from './safeStorage';
 import { Customer, Vehicle, Inspection, InspectionItemResult, InspectionPhoto, UserProfile } from '../../types';
 import { calculateInspectionMetrics } from '../../utils/inspectionCalculations';
 
@@ -107,24 +107,24 @@ export const LocalDB = {
   // -----------------------------------------------------------------------
   async initialize(): Promise<void> {
     try {
-      const user = await AsyncStorage.getItem(KEYS.CURRENT_USER);
+      const user = await SafeStorage.getItem(KEYS.CURRENT_USER);
       if (!user) {
-        await AsyncStorage.setItem(KEYS.CURRENT_USER, JSON.stringify(DEFAULT_USER));
+        await SafeStorage.setItem(KEYS.CURRENT_USER, JSON.stringify(DEFAULT_USER));
       }
 
-      const customers = await AsyncStorage.getItem(KEYS.CUSTOMERS);
+      const customers = await SafeStorage.getItem(KEYS.CUSTOMERS);
       if (!customers) {
-        await AsyncStorage.setItem(KEYS.CUSTOMERS, JSON.stringify(DEFAULT_CUSTOMERS));
+        await SafeStorage.setItem(KEYS.CUSTOMERS, JSON.stringify(DEFAULT_CUSTOMERS));
       }
 
-      const vehicles = await AsyncStorage.getItem(KEYS.VEHICLES);
+      const vehicles = await SafeStorage.getItem(KEYS.VEHICLES);
       if (!vehicles) {
-        await AsyncStorage.setItem(KEYS.VEHICLES, JSON.stringify(DEFAULT_VEHICLES));
+        await SafeStorage.setItem(KEYS.VEHICLES, JSON.stringify(DEFAULT_VEHICLES));
       }
 
-      const inspections = await AsyncStorage.getItem(KEYS.INSPECTIONS);
+      const inspections = await SafeStorage.getItem(KEYS.INSPECTIONS);
       if (!inspections) {
-        await AsyncStorage.setItem(KEYS.INSPECTIONS, JSON.stringify([]));
+        await SafeStorage.setItem(KEYS.INSPECTIONS, JSON.stringify([]));
       }
     } catch (error) {
       console.error('Error initializing local DB:', error);
@@ -135,15 +135,15 @@ export const LocalDB = {
   // USER / AUTH
   // -----------------------------------------------------------------------
   async getCurrentUser(): Promise<UserProfile | null> {
-    const data = await AsyncStorage.getItem(KEYS.CURRENT_USER);
+    const data = await SafeStorage.getItem(KEYS.CURRENT_USER);
     return data ? JSON.parse(data) : null;
   },
 
   async setCurrentUser(user: UserProfile | null): Promise<void> {
     if (user) {
-      await AsyncStorage.setItem(KEYS.CURRENT_USER, JSON.stringify(user));
+      await SafeStorage.setItem(KEYS.CURRENT_USER, JSON.stringify(user));
     } else {
-      await AsyncStorage.removeItem(KEYS.CURRENT_USER);
+      await SafeStorage.removeItem(KEYS.CURRENT_USER);
     }
   },
 
@@ -151,7 +151,7 @@ export const LocalDB = {
   // CUSTOMERS
   // -----------------------------------------------------------------------
   async getCustomers(): Promise<Customer[]> {
-    const data = await AsyncStorage.getItem(KEYS.CUSTOMERS);
+    const data = await SafeStorage.getItem(KEYS.CUSTOMERS);
     return data ? JSON.parse(data) : [];
   },
 
@@ -193,7 +193,7 @@ export const LocalDB = {
       list.unshift(savedCustomer);
     }
 
-    await AsyncStorage.setItem(KEYS.CUSTOMERS, JSON.stringify(list));
+    await SafeStorage.setItem(KEYS.CUSTOMERS, JSON.stringify(list));
     return savedCustomer;
   },
 
@@ -201,7 +201,7 @@ export const LocalDB = {
   // VEHICLES
   // -----------------------------------------------------------------------
   async getVehicles(): Promise<Vehicle[]> {
-    const data = await AsyncStorage.getItem(KEYS.VEHICLES);
+    const data = await SafeStorage.getItem(KEYS.VEHICLES);
     return data ? JSON.parse(data) : [];
   },
 
@@ -243,7 +243,7 @@ export const LocalDB = {
       list.unshift(savedVehicle);
     }
 
-    await AsyncStorage.setItem(KEYS.VEHICLES, JSON.stringify(list));
+    await SafeStorage.setItem(KEYS.VEHICLES, JSON.stringify(list));
     return savedVehicle;
   },
 
@@ -251,7 +251,7 @@ export const LocalDB = {
   // INSPECTIONS
   // -----------------------------------------------------------------------
   async getInspections(): Promise<Inspection[]> {
-    const data = await AsyncStorage.getItem(KEYS.INSPECTIONS);
+    const data = await SafeStorage.getItem(KEYS.INSPECTIONS);
     return data ? JSON.parse(data) : [];
   },
 
@@ -286,7 +286,7 @@ export const LocalDB = {
       list.unshift(updatedInspection);
     }
 
-    await AsyncStorage.setItem(KEYS.INSPECTIONS, JSON.stringify(list));
+    await SafeStorage.setItem(KEYS.INSPECTIONS, JSON.stringify(list));
     return updatedInspection;
   },
 
@@ -351,19 +351,19 @@ export const LocalDB = {
   // UPLOAD QUEUE FOR OFFLINE RESILIENCE
   // -----------------------------------------------------------------------
   async getUploadQueue(): Promise<InspectionPhoto[]> {
-    const data = await AsyncStorage.getItem(KEYS.UPLOAD_QUEUE);
+    const data = await SafeStorage.getItem(KEYS.UPLOAD_QUEUE);
     return data ? JSON.parse(data) : [];
   },
 
   async enqueueUpload(photo: InspectionPhoto): Promise<void> {
     const queue = await this.getUploadQueue();
     queue.push(photo);
-    await AsyncStorage.setItem(KEYS.UPLOAD_QUEUE, JSON.stringify(queue));
+    await SafeStorage.setItem(KEYS.UPLOAD_QUEUE, JSON.stringify(queue));
   },
 
   async dequeueUpload(photoId: string): Promise<void> {
     const queue = await this.getUploadQueue();
     const updated = queue.filter((p) => p.id !== photoId);
-    await AsyncStorage.setItem(KEYS.UPLOAD_QUEUE, JSON.stringify(updated));
+    await SafeStorage.setItem(KEYS.UPLOAD_QUEUE, JSON.stringify(updated));
   },
 };

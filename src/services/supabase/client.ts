@@ -2,7 +2,7 @@
 // Handles both live Supabase backend and seamless local offline fallback.
 
 import { createClient } from '@supabase/supabase-js';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeStorage } from '../storage/safeStorage';
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-anon-key';
@@ -15,8 +15,8 @@ export const isSupabaseConfigured = Boolean(
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    storage: AsyncStorage,
-    autoRefreshToken: true,
+    storage: SafeStorage,
+    autoRefreshToken: isSupabaseConfigured,
     persistSession: true,
     detectSessionInUrl: false,
   },

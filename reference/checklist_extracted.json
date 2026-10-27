@@ -1,0 +1,2288 @@
+[
+  {
+    "name": "Exterior",
+    "subsections": [
+      {
+        "name": "Body Panels",
+        "items": [
+          {
+            "name": "Left front fender paint uniformity",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for dents on body panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for scratches on body panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for paint color mismatch between panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for uneven panel gaps",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for signs of repainting or touch-up",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for rust or corrosion on panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for waviness or surface distortion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check alignment of doors with body panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check alignment of bonnet with fenders",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check alignment of boot lid with rear panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check for adhesive residue or protective film marks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          }
+        ]
+      },
+      {
+        "name": "Doors / Bonnet / Boot",
+        "items": [
+          {
+            "name": "Check door opening and closing operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check bonnet opening and closing operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check boot opening and closing operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check door alignment with body panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check bonnet alignment with fenders",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check boot lid alignment with rear panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check door hinges for noise or stiffness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 2
+          },
+          {
+            "name": "Check door locking and unlocking operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check bonnet stay or gas strut operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check boot gas strut or support rod operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check weather seals on doors, bonnet, and boot",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          }
+        ]
+      },
+      {
+        "name": "Glass & Mirrors",
+        "items": [
+          {
+            "name": "Check windshield for cracks or chips",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check windshield for scratches or distortions",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check front side windows for cracks or chips",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check rear side windows for cracks or chips",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check rear windshield for cracks or defogger line damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check operation of power windows",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check exterior mirrors for cracks or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check mirror adjustment controls",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check mirror folding mechanism",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check glass seals and beading condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check for tint film bubbles or peeling",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          }
+        ]
+      },
+      {
+        "name": "Lights & Indicators",
+        "items": [
+          {
+            "name": "Check headlamp lenses for cracks or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check headlamp illumination (low beam)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check headlamp illumination (high beam)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check headlamp alignment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check daytime running lights operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 3
+          },
+          {
+            "name": "Check front turn indicators operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check rear turn indicators operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check tail lamps for cracks or moisture",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check brake light operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check reverse light operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check hazard lights operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          }
+        ]
+      },
+      {
+        "name": "Paint & Finish",
+        "items": [
+          {
+            "name": "Check for paint scratches",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for paint swirl marks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for paint chips on panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for uneven paint finish or orange peel effect",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for paint color consistency across panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for clear coat peeling or defects",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for overspray on trims or glass",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for polish residue in panel gaps",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for stains or water spots on paint surface",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check paint finish under direct light for imperfections",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for protective coating or wax application consistency",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          }
+        ]
+      },
+      {
+        "name": "Rust & Corrosion",
+        "items": [
+          {
+            "name": "Check for rust on visible body panels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for corrosion on door edges and seams",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for rust on bonnet edges",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 4
+          },
+          {
+            "name": "Check for rust on boot lid edges",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for corrosion around windshield edges",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for corrosion around rear glass edges",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for rust on wheel arches",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for corrosion on under-door sill areas",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for rust on fuel filler area",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for signs of rust repair or cover-up",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for corrosion on exposed metal fasteners",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Interior",
+    "subsections": [
+      {
+        "name": "Air Conditioning & HVAC",
+        "items": [
+          {
+            "name": "Check air conditioner cooling performance",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check heater operation and warm air output",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check blower fan operation at all speed levels",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check air flow direction control operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check temperature control response",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check AC compressor noise during operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check automatic climate control function (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check rear AC vents air flow (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check cabin air filter condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check for unusual odor from HVAC system",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          },
+          {
+            "name": "Check defogger air flow from front vents",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 5
+          }
+        ]
+      },
+      {
+        "name": "Cabin Cleanliness & Odour",
+        "items": [
+          {
+            "name": "Check cabin for overall cleanliness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check seats and upholstery for dust or stains",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check floor mats and carpeting cleanliness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check dashboard and trims for dust or smudges",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check for unpleasant odour inside cabin",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          }
+        ]
+      },
+      {
+        "name": "Dashboard & Trims",
+        "items": [
+          {
+            "name": "Check dashboard surface for scratches or cracks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check dashboard fitment and panel gaps",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check dashboard color and finish consistency",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check center console for damage or looseness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check interior trim panels for scratches or marks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check glove box opening, closing, and latch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check air vent condition and adjustment operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check trim rattling or abnormal noise while stationary",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check dashboard warning lights illumination at ignition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check steering column trim fitment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check interior trims for signs of prior removal",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          }
+        ]
+      },
+      {
+        "name": "Interior Lighting",
+        "items": [
+          {
+            "name": "Check cabin dome light operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check front map reading lights operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check rear cabin light operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 6
+          },
+          {
+            "name": "Check dashboard backlight illumination",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check instrument cluster illumination consistency",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check steering wheel control backlight illumination",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check center console illumination",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check footwell lighting operation (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check glove box light operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check boot interior light operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check interior lighting auto-off function",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          }
+        ]
+      },
+      {
+        "name": "Seat Belts & Safety",
+        "items": [
+          {
+            "name": "Check driver seat belt condition for cuts or fraying",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check front passenger seat belt condition for cuts or fraying",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check rear seat belts condition for cuts or fraying",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check driver seat belt retraction operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check front passenger seat belt retraction operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check rear seat belt retraction operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check seat belt buckle locking and release function",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check seat belt height adjuster operation (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check seat belt warning indicator operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check child seat anchor points condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check airbag warning light status on ignition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          }
+        ]
+      },
+      {
+        "name": "Seats & Upholstery",
+        "items": [
+          {
+            "name": "Check driver seat upholstery for tears or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 7
+          },
+          {
+            "name": "Check front passenger seat upholstery for tears or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check rear seat upholstery for tears or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check seat fabric or leather for stains or discoloration",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check seat cushioning firmness and shape",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check driver seat adjustment controls operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check front passenger seat adjustment controls operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check rear seat folding mechanism operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check seat rails for smooth movement and noise",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check headrests condition and adjustment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check seat covers fitted correctly (if applicable)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          }
+        ]
+      },
+      {
+        "name": "Steering & Controls",
+        "items": [
+          {
+            "name": "Check steering wheel surface for wear or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check steering wheel alignment (center position)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check steering wheel tilt and telescopic adjustment operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check steering for abnormal free play",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check horn operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check steering-mounted audio controls operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check steering-mounted phone controls operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check indicator stalk operation and return action",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check wiper stalk operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check cruise control switches operation (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          },
+          {
+            "name": "Check steering column for abnormal noise during rotation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Electronics",
+    "subsections": [
+      {
+        "name": "Battery & Electrical Health",
+        "items": [
+          {
+            "name": "Check battery manufacturing date",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check battery terminals for corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check battery terminal tightness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check battery voltage at rest",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check battery voltage during engine start",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check alternator charging voltage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check battery warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check visible wiring for damage or looseness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check main fuse box cover and condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check spare fuse availability",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check electrical system for abnormal fluctuation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          }
+        ]
+      },
+      {
+        "name": "Electrical Controls & Switches",
+        "items": [
+          {
+            "name": "Check headlamp switch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check indicator switch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check hazard light switch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check wiper and washer switch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check rear defogger switch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check power mirror adjustment switch",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check power mirror folding switch (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check engine start/stop button operation (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 9
+          },
+          {
+            "name": "Check interior illumination dimmer control",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check traction control or drive mode switch operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check all dashboard switches for proper tactile feedback",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          }
+        ]
+      },
+      {
+        "name": "Infotainment System",
+        "items": [
+          {
+            "name": "Check infotainment system powers on",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check touchscreen responsiveness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check display clarity and brightness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check audio output from all speakers",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check volume control operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check radio FM/AM reception",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check Bluetooth pairing and audio streaming",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check USB media playback",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check Apple CarPlay / Android Auto operation (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check steering-mounted infotainment controls",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check system response time and lag",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          }
+        ]
+      },
+      {
+        "name": "Instrument Cluster",
+        "items": [
+          {
+            "name": "Check instrument cluster powers on during ignition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check speedometer operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check tachometer operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check fuel gauge accuracy",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check engine temperature gauge operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check odometer reading visibility",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 10
+          },
+          {
+            "name": "Check trip meter reset and operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check warning lights illuminate during self-test",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check warning lights turn off after engine start",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check instrument cluster backlight brightness control",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check digital display clarity and pixel condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          }
+        ]
+      },
+      {
+        "name": "Power Windows & Locks",
+        "items": [
+          {
+            "name": "Check driver side power window operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check front passenger power window operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check rear left power window operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check rear right power window operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check one-touch up/down function (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check power window switches illumination",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check central locking operation from key fob",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check central locking operation from door switch",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check child lock function on rear doors",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check power door lock actuators noise",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check auto-lock function while driving (if equipped)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          }
+        ]
+      },
+      {
+        "name": "Warning Lights & Sensors",
+        "items": [
+          {
+            "name": "Check engine malfunction warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check ABS warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check airbag warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check brake system warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 11
+          },
+          {
+            "name": "Check battery charging warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check engine oil pressure warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check seat belt warning indicator operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check parking sensor warning indication",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check TPMS warning light status",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check door open warning indicator",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check all warning lights self-test during ignition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Engine Bay",
+    "subsections": [
+      {
+        "name": "Belts, Hoses & Mounts",
+        "items": [
+          {
+            "name": "Check drive belts for cracks or fraying",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check belt tension and alignment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check coolant hoses for cracks or swelling",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check hoses for leaks at joints and clamps",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check engine mounts for visible damage or cracks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check engine mounts for excessive movement",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          }
+        ]
+      },
+      {
+        "name": "Cooling System",
+        "items": [
+          {
+            "name": "Check radiator for visible damage or leaks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check coolant level in radiator",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check coolant reservoir condition and level",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check radiator hoses for cracks or swelling",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check cooling fan operation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 12
+          },
+          {
+            "name": "Check radiator cap condition and fitment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check for coolant stains or residue in engine bay",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          }
+        ]
+      },
+      {
+        "name": "Engine Bay Wiring & Components",
+        "items": [
+          {
+            "name": "Check wiring harness for cuts or exposed wires",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check wiring connectors for secure fitment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check fuse box wiring for damage or overheating marks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check battery cables for wear or cracks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check grounding points for tightness and corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check sensor wiring for damage or loose routing",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check relays and connectors seating",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check for signs of rodent damage on wiring",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          }
+        ]
+      },
+      {
+        "name": "Engine Condition (Visual)",
+        "items": [
+          {
+            "name": "Check engine bay for oil leaks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check engine bay for coolant leaks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check engine block and head for visible damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check belts for cracks or wear",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check hoses for cracks, swelling, or leaks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check wiring harness for damage or loose connections",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check engine mounting bolts for looseness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check fluid caps secured properly",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check engine bay cleanliness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check for abnormal rust or corrosion in engine bay",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 13
+          },
+          {
+            "name": "Check for aftermarket modifications in engine bay",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          }
+        ]
+      },
+      {
+        "name": "Fluids & Levels",
+        "items": [
+          {
+            "name": "Check engine oil level",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check coolant level in reservoir",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check brake fluid level",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check windshield washer fluid level",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check power steering fluid level (if applicable)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          }
+        ]
+      },
+      {
+        "name": "Leaks & Seepage",
+        "items": [
+          {
+            "name": "Check engine oil leakage under engine",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check coolant leakage around hoses and radiator",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check brake fluid leakage near master cylinder",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check power steering fluid leakage (if applicable)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check fuel seepage or smell in engine bay",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Underbody & Chassis",
+    "subsections": [
+      {
+        "name": "Brake Lines & Components",
+        "items": [
+          {
+            "name": "Check brake lines for leaks or seepage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check brake pipes for rust or corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check flexible brake hoses for cracks or swelling",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check brake hose connections and fittings",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check brake line routing and securing clips",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check ABS sensor wiring near brake components",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 14
+          },
+          {
+            "name": "Check brake calipers for fluid leakage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check brake dust shields condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          }
+        ]
+      },
+      {
+        "name": "Chassis & Frame",
+        "items": [
+          {
+            "name": "Check chassis frame for bends or deformation",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check chassis for rust or corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check weld points for cracks or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check underbody for impact or scrape damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check mounting points for suspension and arms",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check cross members condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check protective underbody coating condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check signs of prior repair or welding",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          }
+        ]
+      },
+      {
+        "name": "Exhaust System",
+        "items": [
+          {
+            "name": "Check exhaust pipes for dents or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check exhaust system for rust or corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check exhaust joints for leaks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check muffler condition and mounting",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check exhaust hangers and rubber mounts",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check heat shields for secure fitment",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check catalytic converter for physical damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check exhaust noise level for abnormal sound",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          }
+        ]
+      },
+      {
+        "name": "Fuel Lines & Tank Area",
+        "items": [
+          {
+            "name": "Check fuel lines for leaks or seepage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 15
+          },
+          {
+            "name": "Check fuel pipes for rust or corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check flexible fuel hoses for cracks or swelling",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check fuel line connections and clamps",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check fuel tank for dents or physical damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check fuel tank for rust or corrosion",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check fuel tank mounting straps and bolts",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check fuel filler neck and hose condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check fuel vapor lines for damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check for fuel smell near tank area",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          }
+        ]
+      },
+      {
+        "name": "Suspension Components",
+        "items": [
+          {
+            "name": "Check front suspension components for damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check rear suspension components for damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check shock absorbers for oil leakage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check struts and mounts for cracks or wear",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check suspension bushes for cracks or deterioration",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check stabilizer bar and links condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check coil springs for damage or sagging",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check suspension mounting bolts tightness",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          }
+        ]
+      },
+      {
+        "name": "Underbody Protection & Shields",
+        "items": [
+          {
+            "name": "Check underbody shields for damage or cracks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check underbody shields for secure mounting",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check splash guards for damage or missing parts",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 16
+          },
+          {
+            "name": "Check engine undertray condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check fasteners and clips for underbody covers",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check underbody panels for signs of impact",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 17
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Road Test",
+    "subsections": [
+      {
+        "name": "Braking Performance",
+        "items": [
+          {
+            "name": "Check brake response and stopping effectiveness",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check braking for vibration or judder",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          }
+        ]
+      },
+      {
+        "name": "Engine Performance",
+        "items": [
+          {
+            "name": "Check engine starts promptly without hesitation",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check engine acceleration response",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check engine idling stability",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          }
+        ]
+      },
+      {
+        "name": "Noise, Vibration & Harshness (NVH)",
+        "items": [
+          {
+            "name": "Check for abnormal engine noise during drive",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check for abnormal vibration in cabin",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Record any abnormal noise or vibration remarks",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          }
+        ]
+      },
+      {
+        "name": "Steering & Handling",
+        "items": [
+          {
+            "name": "Check steering response and straight-line stability",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check steering for pulling to one side",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check vehicle handling over uneven road",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          }
+        ]
+      },
+      {
+        "name": "Transmission & Clutch",
+        "items": [
+          {
+            "name": "Check smooth gear shifting during acceleration",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 17
+          },
+          {
+            "name": "Check clutch engagement and release (manual)",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check transmission for jerks or delay (automatic)",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 18
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tyres & Wheels",
+    "subsections": [
+      {
+        "name": "Spare Tyre & Tools",
+        "items": [
+          {
+            "name": "Check spare tyre condition",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check jack and wheel spanner availability",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          }
+        ]
+      },
+      {
+        "name": "Tyre Specifications",
+        "items": [
+          {
+            "name": "Check tyre size matches manufacturer specification",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check tyre brand and model consistency",
+            "reference_status": "PASS",
+            "reference_value": "CEAT",
+            "page": 18
+          },
+          {
+            "name": "Record tyre manufacturing week and year (DOT)",
+            "reference_status": "PASS",
+            "reference_value": "3226",
+            "page": 18
+          }
+        ]
+      },
+      {
+        "name": "Tyres Condition",
+        "items": [
+          {
+            "name": "Check front left tyre for cuts, bulges, or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check front right tyre for cuts, bulges, or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check rear left tyre for cuts, bulges, or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check rear right tyre for cuts, bulges, or damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check tyres for uneven tread wear",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          }
+        ]
+      },
+      {
+        "name": "Wheel Alignment & Balance (Visual)",
+        "items": [
+          {
+            "name": "Check steering wheel off-centre (visual)",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          },
+          {
+            "name": "Check tyres visually for alignment-related wear",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 18
+          }
+        ]
+      },
+      {
+        "name": "Wheels & Rims",
+        "items": [
+          {
+            "name": "Check alloy/steel wheels for bends or cracks",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Check wheels for scratches or cosmetic damage",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Check wheel nuts/bolts present and secured",
+            "reference_status": "PASS",
+            "reference_value": null,
+            "page": 19
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Documents & Compliance",
+    "subsections": [
+      {
+        "name": "Compliance Stickers & Labels",
+        "items": [
+          {
+            "name": "Check VIN sticker on body/frame",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Check emission compliance sticker",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Check tyre pressure and load label",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Record remarks for document discrepancies",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          }
+        ]
+      },
+      {
+        "name": "Insurance & Legal",
+        "items": [
+          {
+            "name": "Check insurance policy available",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Verify insurance validity and vehicle details",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          }
+        ]
+      },
+      {
+        "name": "Manufacturer Documentation",
+        "items": [
+          {
+            "name": "Check owner's manual availability",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Check service booklet/warranty card availability",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          }
+        ]
+      },
+      {
+        "name": "Registration & Ownership",
+        "items": [
+          {
+            "name": "Check RC copy available",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Verify RC details match vehicle",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          }
+        ]
+      },
+      {
+        "name": "Vehicle Identification",
+        "items": [
+          {
+            "name": "Verify VIN/chassis number matches vehicle embossing",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Record VIN/chassis number",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 19
+          },
+          {
+            "name": "Record engine number",
+            "reference_status": "PENDING",
+            "reference_value": null,
+            "page": 20
+          }
+        ]
+      }
+    ]
+  }
+]

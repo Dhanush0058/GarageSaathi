@@ -4,7 +4,6 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
   StyleSheet,
@@ -12,6 +11,7 @@ import {
   Platform,
   StatusBar as RNStatusBar,
 } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Typography } from './src/theme/colors';
@@ -32,6 +32,14 @@ import { InspectionHistoryScreen } from './src/screens/InspectionHistoryScreen';
 type TabType = 'home' | 'customers' | 'vehicles' | 'history' | 'profile';
 
 export default function App() {
+  return (
+    <SafeAreaProvider>
+      <AppContent />
+    </SafeAreaProvider>
+  );
+}
+
+function AppContent() {
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [loadingApp, setLoadingApp] = useState(true);
@@ -339,7 +347,6 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: Colors.slate900,
-    paddingTop: Platform.OS === 'android' ? RNStatusBar.currentHeight : 0,
   },
   content: {
     flex: 1,

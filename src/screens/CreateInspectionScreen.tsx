@@ -256,10 +256,10 @@ export const CreateInspectionScreen: React.FC<CreateInspectionScreenProps> = ({
           {/* Assigned Summary Badge */}
           <View style={styles.summaryBadge}>
             <Text style={styles.summaryBadgeText}>
-              Client: <strong>{selectedCustomer?.name}</strong> | Vehicle:{' '}
-              <strong>
+              Client: <Text style={styles.boldText}>{selectedCustomer?.name}</Text> | Vehicle:{' '}
+              <Text style={styles.boldText}>
                 {selectedVehicle?.make} {selectedVehicle?.model} ({selectedVehicle?.registrationNumber})
-              </strong>
+              </Text>
             </Text>
           </View>
 
@@ -496,6 +496,10 @@ const styles = StyleSheet.create({
   summaryBadgeText: {
     fontSize: Typography.sizes.xs,
     color: Colors.primaryDark,
+  },
+  boldText: {
+    fontWeight: '700',
+    color: Colors.slate900,
   },
   inputGroup: {
     marginBottom: Spacing.md,

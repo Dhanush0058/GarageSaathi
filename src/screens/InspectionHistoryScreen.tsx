@@ -9,6 +9,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Typography } from '../theme/colors';
@@ -17,17 +18,21 @@ import { Inspection } from '../types';
 import { LocalDB } from '../services/storage/localDatabase';
 
 interface InspectionHistoryScreenProps {
+  initialFilter?: 'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed';
   onSelectInspection: (inspectionId: string) => void;
   onBack: () => void;
 }
 
 export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = ({
+  initialFilter = 'ALL',
   onSelectInspection,
   onBack,
 }) => {
   const [inspections, setInspections] = useState<Inspection[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState<'ALL' | 'draft' | 'in_progress' | 'completed'>('ALL');
+  const [statusFilter, setStatusFilter] = useState<'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed'>(
+    initialFilter
+  );
 
   const loadData = async () => {
     const list = await LocalDB.getInspections();
@@ -37,6 +42,12 @@ export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = (
   useEffect(() => {
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (initialFilter) {
+      setStatusFilter(initialFilter);
+    }
+  }, [initialFilter]);
 
   const filtered = inspections.filter((i) => {
     const query = searchQuery.toLowerCase();
@@ -48,7 +59,12 @@ export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = (
       (i.customer?.name && i.customer.name.toLowerCase().includes(query)) ||
       (i.inspectorName && i.inspectorName.toLowerCase().includes(query));
 
-    const matchesStatus = statusFilter === 'ALL' || i.status === statusFilter;
+    const matchesStatus =
+      statusFilter === 'ALL'
+        ? true
+        : statusFilter === 'failed'
+        ? (i.failedItems || 0) > 0
+        : i.status === statusFilter;
 
     return matchesSearch && matchesStatus;
   });
@@ -82,8 +98,8 @@ export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = (
         </View>
 
         {/* Status Filter Chips */}
-        <View style={styles.filterRow}>
-          {(['ALL', 'completed', 'in_progress', 'draft'] as const).map((st) => (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filterRow}>
+          {(['ALL', 'completed', 'in_progress', 'draft', 'failed'] as const).map((st) => (
             <TouchableOpacity
               key={st}
               onPress={() => setStatusFilter(st)}
@@ -98,11 +114,11 @@ export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = (
                   statusFilter === st && styles.filterChipTextActive,
                 ]}
               >
-                {st.replace('_', ' ').toUpperCase()}
+                {st === 'failed' ? 'WITH DEFECTS' : st.replace('_', ' ').toUpperCase()}
               </Text>
             </TouchableOpacity>
           ))}
-        </View>
+        </ScrollView>
       </View>
 
       {/* Chronological List */}
@@ -241,13 +257,13 @@ const styles = StyleSheet.create({
   },
   reportId: {
     fontSize: Typography.sizes.xs,
-    fontWeight: Typography.weights.bold,
-    color: Colors.primary,
+    fontWeight: '900',
+    color: '#D97706',
   },
   vehicleReg: {
-    fontSize: Typography.sizes.sm,
-    fontWeight: Typography.weights.bold,
-    color: Colors.slate900,
+    fontSize: Typography.sizes.base,
+    fontWeight: '900',
+    color: '#000000',
     marginTop: 2,
   },
   clientRow: {
@@ -257,12 +273,14 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   clientText: {
-    fontSize: 11,
-    color: Colors.slate600,
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#000000',
   },
   dateText: {
     fontSize: 11,
-    color: Colors.slate400,
+    fontWeight: '700',
+    color: '#1E293B',
   },
   progressRow: {
     marginTop: 6,
@@ -273,13 +291,14 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   progressLabel: {
-    fontSize: 10,
-    color: Colors.slate500,
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#0F172A',
   },
   passScore: {
-    fontSize: 10,
-    fontWeight: '700',
-    color: Colors.slate700,
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#000000',
   },
   emptyContainer: {
     alignItems: 'center',
@@ -287,13 +306,14 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: Typography.sizes.base,
-    fontWeight: Typography.weights.bold,
-    color: Colors.slate700,
+    fontWeight: '900',
+    color: '#000000',
     marginTop: 8,
   },
   emptySub: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate500,
+    fontWeight: '700',
+    color: '#0F172A',
     marginTop: 2,
   },
 });

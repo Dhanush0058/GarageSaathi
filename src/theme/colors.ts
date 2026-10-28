@@ -22,13 +22,13 @@ export const Colors = {
   pendingLight: '#FEF3C7',
   pendingDark: '#78350F',
 
-  // Neutrals / Typography
-  slate900: '#0B0F17',   // Deep Black / Slate for headers and dark mode
-  slate800: '#181E29',
-  slate700: '#334155',
-  slate600: '#475569',
-  slate500: '#64748B',
-  slate400: '#94A3B8',
+  // Neutrals / Typography — High Contrast & Pure Dark Black for Workshop Readability
+  slate900: '#000000',   // Pure Black for headers and key titles
+  slate800: '#0F172A',
+  slate700: '#181E29',
+  slate600: '#1E293B',
+  slate500: '#0F172A',   // Enhanced to deep solid dark for maximum readability
+  slate400: '#475569',
   slate300: '#CBD5E1',
   slate200: '#E2E8F0',
   slate100: '#F1F5F9',
@@ -39,11 +39,11 @@ export const Colors = {
   background: '#F8FAFC',
   card: '#FFFFFF',
   cardAlt: '#F1F5F9',
-  border: '#E2E8F0',
-  borderStrong: '#CBD5E1',
-  textPrimary: '#0B0F17',
-  textSecondary: '#475569',
-  textMuted: '#64748B',
+  border: '#CBD5E1',     // Defined crisp borders for cards
+  borderStrong: '#94A3B8',
+  textPrimary: '#000000', // Pure solid black
+  textSecondary: '#0F172A', // Bold dark black
+  textMuted: '#1E293B',   // Deep solid charcoal, no washed out grey
   textInverted: '#FFFFFF',
 
   // Functional Accents

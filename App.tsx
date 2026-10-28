@@ -43,6 +43,9 @@ function AppContent() {
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [loadingApp, setLoadingApp] = useState(true);
+  const [historyFilter, setHistoryFilter] = useState<
+    'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed'
+  >('ALL');
 
   // Stack navigation states
   const [activeScreen, setActiveScreen] = useState<
@@ -189,7 +192,10 @@ function AppContent() {
               setActiveInspectionId(id);
               setActiveScreen('summary');
             }}
-            onNavigateToHistory={() => setActiveTab('history')}
+            onNavigateToHistory={(filter) => {
+              setHistoryFilter(filter || 'ALL');
+              setActiveTab('history');
+            }}
           />
         )}
 
@@ -203,6 +209,7 @@ function AppContent() {
 
         {activeTab === 'history' && (
           <InspectionHistoryScreen
+            initialFilter={historyFilter}
             onSelectInspection={(id) => {
               setActiveInspectionId(id);
               setActiveScreen('summary');
@@ -230,7 +237,7 @@ function AppContent() {
           <Ionicons
             name={activeTab === 'home' ? 'speedometer' : 'speedometer-outline'}
             size={22}
-            color={activeTab === 'home' ? Colors.primary : Colors.slate400}
+            color={activeTab === 'home' ? Colors.primaryDark : '#000000'}
           />
           <Text
             style={[
@@ -250,7 +257,7 @@ function AppContent() {
           <Ionicons
             name={activeTab === 'vehicles' ? 'car-sport' : 'car-sport-outline'}
             size={22}
-            color={activeTab === 'vehicles' ? Colors.primary : Colors.slate400}
+            color={activeTab === 'vehicles' ? Colors.primaryDark : '#000000'}
           />
           <Text
             style={[
@@ -271,18 +278,21 @@ function AppContent() {
           }}
           style={styles.floatingActionBtn}
         >
-          <Ionicons name="add" size={30} color={Colors.primaryText} />
+          <Ionicons name="add" size={32} color={Colors.primaryText} />
         </TouchableOpacity>
 
         <TouchableOpacity
           activeOpacity={0.8}
-          onPress={() => setActiveTab('history')}
+          onPress={() => {
+            setHistoryFilter('ALL');
+            setActiveTab('history');
+          }}
           style={styles.tabButton}
         >
           <Ionicons
             name={activeTab === 'history' ? 'document-text' : 'document-text-outline'}
             size={22}
-            color={activeTab === 'history' ? Colors.primary : Colors.slate400}
+            color={activeTab === 'history' ? Colors.primaryDark : '#000000'}
           />
           <Text
             style={[
@@ -302,7 +312,7 @@ function AppContent() {
           <Ionicons
             name={activeTab === 'profile' ? 'person' : 'person-outline'}
             size={22}
-            color={activeTab === 'profile' ? Colors.primary : Colors.slate400}
+            color={activeTab === 'profile' ? Colors.primaryDark : '#000000'}
           />
           <Text
             style={[
@@ -375,46 +385,50 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     backgroundColor: Colors.white,
-    borderTopWidth: 1,
-    borderTopColor: Colors.slate200,
+    borderTopWidth: 1.5,
+    borderTopColor: '#E2E8F0',
     paddingVertical: 6,
     paddingHorizontal: 8,
+    paddingBottom: Platform.OS === 'ios' ? 22 : 6,
     alignItems: 'center',
     justifyContent: 'space-around',
     elevation: 8,
     shadowColor: Colors.slate900,
     shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
   },
   tabButton: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    paddingVertical: 4,
+    paddingVertical: 2,
   },
   tabButtonText: {
-    fontSize: 10,
-    color: Colors.slate400,
-    fontWeight: '600',
+    fontSize: 11,
+    color: '#000000',
+    fontWeight: '700',
     marginTop: 2,
   },
   tabButtonTextActive: {
-    color: Colors.primary,
-    fontWeight: '700',
+    color: '#D97706',
+    fontWeight: '900',
   },
   floatingActionBtn: {
-    width: 52,
-    height: 52,
-    borderRadius: 26,
+    width: 54,
+    height: 54,
+    borderRadius: 27,
     backgroundColor: Colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: -20,
-    elevation: 5,
-    shadowColor: Colors.primary,
+    marginTop: -24,
+    borderWidth: 3.5,
+    borderColor: Colors.white,
+    elevation: 8,
+    shadowColor: Colors.slate900,
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.35,
-    shadowRadius: 6,
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    zIndex: 99,
   },
 });

@@ -11,6 +11,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Typography } from '../../theme/colors';
 
 // -------------------------------------------------------------------------
@@ -198,16 +199,34 @@ export const StatCard: React.FC<{
   subtitle?: string;
   accentColor?: string;
   icon?: React.ReactNode;
+  iconBgColor?: string;
   onPress?: () => void;
-}> = ({ title, value, subtitle, accentColor = Colors.primary, icon, onPress }) => {
+}> = ({
+  title,
+  value,
+  subtitle,
+  accentColor = Colors.primary,
+  icon,
+  iconBgColor = Colors.slate100,
+  onPress,
+}) => {
   return (
     <Card onPress={onPress} style={styles.statCard}>
       <View style={styles.statCardHeader}>
         <Text style={styles.statCardTitle}>{title}</Text>
-        {icon}
+        {icon ? (
+          <View style={[styles.statIconBadge, { backgroundColor: iconBgColor }]}>
+            {icon}
+          </View>
+        ) : null}
       </View>
       <Text style={[styles.statCardValue, { color: accentColor }]}>{value}</Text>
-      {subtitle ? <Text style={styles.statCardSub}>{subtitle}</Text> : null}
+      <View style={styles.statFooterRow}>
+        {subtitle ? <Text style={styles.statCardSub}>{subtitle}</Text> : null}
+        {onPress ? (
+          <Ionicons name="chevron-forward" size={14} color={Colors.slate500} />
+        ) : null}
+      </View>
     </Card>
   );
 };
@@ -327,26 +346,53 @@ const styles = StyleSheet.create({
     flex: 1,
     minWidth: 140,
     marginHorizontal: 4,
+    padding: Spacing.md,
+    borderWidth: 1.5,
+    borderColor: Colors.border,
+    borderRadius: 12,
+    backgroundColor: Colors.white,
+    shadowColor: Colors.slate900,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
   },
   statCardHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 6,
+    marginBottom: 8,
   },
   statCardTitle: {
-    fontSize: Typography.sizes.xs,
-    fontWeight: Typography.weights.bold,
-    color: Colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#000000',
     textTransform: 'uppercase',
+    letterSpacing: 0.5,
+    flex: 1,
+    marginRight: 6,
+  },
+  statIconBadge: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   statCardValue: {
     fontSize: Typography.sizes.xxl,
-    fontWeight: Typography.weights.bold,
+    fontWeight: '900',
+    marginBottom: 2,
+  },
+  statFooterRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 2,
   },
   statCardSub: {
-    fontSize: Typography.sizes.xs,
-    color: Colors.textMuted,
-    marginTop: 2,
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#0F172A',
   },
 });

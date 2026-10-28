@@ -283,26 +283,30 @@ const styles = StyleSheet.create({
   },
   customerName: {
     fontSize: Typography.sizes.base,
-    fontWeight: Typography.weights.bold,
-    color: Colors.slate900,
+    fontWeight: '900',
+    color: '#000000',
   },
   customerPhone: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate600,
+    color: '#000000',
+    fontWeight: '800',
     marginTop: 1,
   },
   customerCity: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate500,
+    fontWeight: '700',
+    color: '#0F172A',
   },
   customerEmail: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate500,
+    fontWeight: '700',
+    color: '#0F172A',
     marginTop: 4,
   },
   customerAddress: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate500,
+    fontWeight: '700',
+    color: '#1E293B',
     marginTop: 2,
   },
   emptyContainer: {

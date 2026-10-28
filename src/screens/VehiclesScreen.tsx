@@ -477,8 +477,8 @@ const styles = StyleSheet.create({
   },
   inspectBtnText: {
     fontSize: Typography.sizes.xs,
-    fontWeight: Typography.weights.bold,
-    color: Colors.white,
+    fontWeight: '900',
+    color: Colors.primaryText,
   },
   specsRow: {
     flexDirection: 'row',
@@ -491,21 +491,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: 4,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   specText: {
     fontSize: 11,
-    color: Colors.slate700,
-    fontWeight: '500',
+    color: '#000000',
+    fontWeight: '700',
   },
   vinText: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate500,
+    color: '#1E293B',
+    fontWeight: '700',
     marginTop: 4,
   },
   customerText: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate600,
-    fontWeight: '600',
+    color: '#000000',
+    fontWeight: '800',
     marginTop: 2,
   },
   emptyContainer: {

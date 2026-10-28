@@ -481,13 +481,14 @@ const styles = StyleSheet.create({
   },
   categoryTitleText: {
     fontSize: Typography.sizes.sm,
-    fontWeight: Typography.weights.bold,
-    color: Colors.slate800,
+    fontWeight: '900',
+    color: '#000000',
     letterSpacing: 0.5,
   },
   categoryCountText: {
     fontSize: 11,
-    color: Colors.slate500,
+    color: '#0F172A',
+    fontWeight: '700',
   },
   subsectionBlock: {
     marginBottom: 6,
@@ -504,12 +505,13 @@ const styles = StyleSheet.create({
   },
   subHeaderText: {
     fontSize: Typography.sizes.xs,
-    fontWeight: Typography.weights.bold,
-    color: Colors.slate900,
+    fontWeight: '900',
+    color: '#000000',
   },
   subCountText: {
     fontSize: 10,
-    color: Colors.slate600,
+    color: '#0F172A',
+    fontWeight: '700',
   },
   bottomActions: {
     padding: Spacing.lg,

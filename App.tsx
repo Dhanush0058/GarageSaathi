@@ -1,4 +1,4 @@
-// GarageSaarthi Vehicle Inspection Mobile App — Main Application Container
+// Z9 Automotive Vehicle Inspection Mobile App — Main Application Container
 // Production-ready React Native Expo architecture with offline persistence,
 // 336-point inspection checklist, camera capture, and PDF report generation.
 
@@ -78,7 +78,7 @@ function AppContent() {
     return (
       <View style={styles.centerContainer}>
         <StatusBar style="light" />
-        <Text style={styles.loadingBrand}>GARAGESAARTHI</Text>
+        <Text style={styles.loadingBrand}>Z9 AUTOMOTIVE</Text>
         <Text style={styles.loadingSub}>Vehicle Inspection Platform</Text>
       </View>
     );

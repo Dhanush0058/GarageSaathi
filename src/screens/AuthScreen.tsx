@@ -1,6 +1,6 @@
 // Screen A: Authentication & Session Management
 // Provides secure sign in, role-based access control (Admin, Owner, Inspector, Reviewer),
-// and profile view with GarageSaarthi branding.
+// and profile view with Z9 Automotive branding.
 
 import React, { useState } from 'react';
 import {
@@ -30,25 +30,25 @@ const PRESET_ROLES: { role: UserRole; name: string; email: string; label: string
   {
     role: 'inspector',
     name: 'Madhu Inspector',
-    email: 'inspector.madhu@garagesaarthi.com',
+    email: 'inspector.madhu@z9automotive.com',
     label: 'Lead Inspector (PDI Specialist)',
   },
   {
     role: 'owner',
     name: 'Rajesh Reddy',
-    email: 'rajesh.owner@garagesaarthi.com',
+    email: 'rajesh.owner@z9automotive.com',
     label: 'Garage Owner / Director',
   },
   {
     role: 'manager',
     name: 'Vikram Joshi',
-    email: 'vikram.manager@garagesaarthi.com',
+    email: 'vikram.manager@z9automotive.com',
     label: 'Workshop Operations Manager',
   },
   {
     role: 'reviewer',
     name: 'Priya Sharma',
-    email: 'priya.audit@garagesaarthi.com',
+    email: 'priya.audit@z9automotive.com',
     label: 'Quality Reviewer (Read Only)',
   },
 ];
@@ -78,7 +78,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
         fullName: email.split('@')[0].toUpperCase(),
         role: 'inspector',
         organizationId: 'org-001',
-        organizationName: 'GarageSaarthi Auto Care',
+        organizationName: 'Z9 Automotive Workshop',
         branchId: 'br-001',
         branchName: 'Main Workshop',
       };
@@ -99,7 +99,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       fullName: preset.name,
       role: preset.role,
       organizationId: 'org-001',
-      organizationName: 'GarageSaarthi Auto Care',
+      organizationName: 'Z9 Automotive Workshop',
       branchId: 'br-001',
       branchName: 'Main Workshop - Hyderabad',
     };
@@ -161,7 +161,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
         <Card style={styles.loginCard}>
           <Text style={styles.cardTitle}>Staff Sign In</Text>
           <Text style={styles.cardSub}>
-            Sign in with your authorized GarageSaarthi staff credentials
+            Sign in with your authorized Z9 Automotive staff credentials
           </Text>
 
           {errorMsg ? (
@@ -175,7 +175,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
             <Text style={styles.label}>Email Address</Text>
             <TextInput
               style={styles.input}
-              placeholder="e.g. inspector@garagesaarthi.com"
+              placeholder="e.g. inspector@z9automotive.com"
               placeholderTextColor={Colors.slate400}
               autoCapitalize="none"
               keyboardType="email-address"

@@ -1,6 +1,6 @@
 // Professional Vehicle Inspection PDF Report Generator
 // Matches the visual hierarchy, scorecard, checklist layout, and certification
-// of the reference 22-page PDI report (PDI-000028) with GarageSaarthi branding.
+// of the reference 22-page PDI report (PDI-000028) with Z9 Automotive branding.
 
 import { Platform } from 'react-native';
 import * as Print from 'expo-print';
@@ -39,7 +39,7 @@ export async function generateAndShareInspectionPdf(
       await Sharing.shareAsync(uri, {
         UTI: '.pdf',
         mimeType: 'application/pdf',
-        dialogTitle: `GarageSaarthi Inspection Report - ${inspection.reportId}`,
+        dialogTitle: `Z9 Automotive Inspection Report - ${inspection.reportId}`,
       });
     }
   } else {
@@ -142,7 +142,7 @@ function buildReportHtml(inspection: Inspection): string {
     return `
       <div class="category-block page-break">
         <div class="cat-header">
-          <div class="cat-header-brand">GARAGESAARTHI • ${cat.code}</div>
+          <div class="cat-header-brand">Z9 AUTOMOTIVE • ${cat.code}</div>
           <div class="cat-header-title">${cat.name}</div>
         </div>
         ${subSectionsHtml}
@@ -156,7 +156,7 @@ function buildReportHtml(inspection: Inspection): string {
       ? `
     <div class="category-block page-break">
       <div class="cat-header">
-        <div class="cat-header-brand">GARAGESAARTHI • EVIDENCE</div>
+        <div class="cat-header-brand">Z9 AUTOMOTIVE • EVIDENCE</div>
         <div class="cat-header-title">Photographic Inspection Evidence</div>
       </div>
       <div class="photo-grid">
@@ -185,7 +185,7 @@ function buildReportHtml(inspection: Inspection): string {
     <html>
     <head>
       <meta charset="utf-8" />
-      <title>GarageSaarthi Vehicle Inspection Report - ${inspection.reportId}</title>
+      <title>Z9 Automotive Vehicle Inspection Report - ${inspection.reportId}</title>
       <style>
         @page {
           size: A4;
@@ -574,7 +574,7 @@ function buildReportHtml(inspection: Inspection): string {
       <!-- PAGE 1: COVER & EXECUTIVE SUMMARY -->
       <div class="cover-header">
         <div>
-          <div class="brand-title">GARAGESAARTHI</div>
+          <div class="brand-title">Z9 AUTOMOTIVE</div>
           <div class="brand-subtitle">VEHICLE INSPECTION REPORT • CONFIDENTIAL</div>
         </div>
         <div class="report-badge">Report ID: ${inspection.reportId}</div>
@@ -650,7 +650,7 @@ function buildReportHtml(inspection: Inspection): string {
           <div class="cert-header">
             <div class="cert-tag">CERTIFICATION OF INSPECTION</div>
             <div class="cert-title">Official Verification Document</div>
-            <div class="cert-sub">GarageSaarthi Automotive Quality Assurance</div>
+            <div class="cert-sub">Z9 Automotive Quality Assurance</div>
           </div>
 
           <div class="cert-body">
@@ -679,9 +679,9 @@ function buildReportHtml(inspection: Inspection): string {
           </div>
 
           <div class="cert-footer-text">
-            This document is a digitally generated copy of the GarageSaarthi vehicle inspection report. It is issued electronically and does not require a handwritten signature to be considered valid. Findings reflect the vehicle condition at the time of inspection and remain on file with GarageSaarthi.
+            This document is a digitally generated copy of the Z9 Automotive vehicle inspection report. It is issued electronically and does not require a handwritten signature to be considered valid. Findings reflect the vehicle condition at the time of inspection and remain on file with Z9 Automotive.
             <br/>
-            <strong>GarageSaarthi • Automotive Workflow & Quality Management System</strong>
+            <strong>Z9 Automotive • Comprehensive Inspection & Quality Assurance</strong>
           </div>
         </div>
       </div>

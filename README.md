@@ -1,6 +1,6 @@
-# GarageSaarthi — Vehicle Inspection & PDI Mobile Application
+# Z9 Automotive — Vehicle Inspection & Quality Assessment Mobile App
 
-Production-ready mobile application for **GarageSaarthi**, engineered for authorized garage owners, workshop managers, and vehicle inspection specialists. 
+Production-ready mobile application for **Z9 Automotive**, engineered for authorized workshop managers, vehicle inspection specialists, and automotive technicians. 
 
 Built with **React Native**, **Expo (SDK 58)**, **TypeScript**, **Supabase PostgreSQL with Row Level Security (RLS)**, offline persistent storage, mobile camera evidence collection, and professional PDF inspection report generation matching the official 22-page reference inspection certificate (`PDI-000028`).
 
@@ -8,7 +8,7 @@ Built with **React Native**, **Expo (SDK 58)**, **TypeScript**, **Supabase Postg
 
 ## 🌟 Visual & Functional Identity
 
-- **Branding Reference**: [GarageSaarthi Official Website](https://www.garagesaarthi.com/)
+- **Brand Identity**: Z9 Automotive Workshop & Inspection Suite
 - **Brand Colors**:
   - Primary Brand Orange: `#FF643C`
   - Deep Brand Accent: `#B02E0C`
@@ -88,7 +88,7 @@ $$\text{PASS Percentage} = \left(\frac{\text{Passed Applicable Items}}{\text{All
    - Official completion & certification validation
 9. **Screen I: Professional PDF Report Generator** (`src/screens/ReportViewScreen.tsx`)
    - Generated using `expo-print` and `expo-sharing`
-   - Executive cover page with GarageSaarthi branding, Report ID, and confidential watermark
+   - Executive cover page with Z9 Automotive branding, Report ID, and confidential watermark
    - Client and Vehicle metadata grid (VIN, Odometer, Fuel Level, Dealer, Inspector)
    - Quality Assessment score tiles across all 8 categories
    - Detailed inspection checklist table with status chips and defect notes
@@ -124,7 +124,7 @@ npx -y tsx tests/inspection.test.ts
 
 Output:
 ```
-🚀 Running GarageSaarthi Vehicle Inspection Logic Tests...
+🚀 Running Z9 Automotive Vehicle Inspection Logic Tests...
 
 Test Suite 1: Checklist Configuration Validation
   ✓ PASS: Has exactly 8 major categories

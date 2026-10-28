@@ -1,4 +1,4 @@
-// Automated Verification Tests for GarageSaarthi Inspection Logic
+// Automated Verification Tests for Z9 Automotive Inspection Logic
 // Tests:
 // 1. Checklist item counts & category structure matches PDF exactly (336 items, 8 categories)
 // 2. Score calculations: PASS percentage = (passed / scored) * 100
@@ -15,7 +15,7 @@ import { calculateInspectionMetrics } from '../src/utils/inspectionCalculations'
 import { CheckResultStatus, InspectionItemResult } from '../src/types';
 
 function runTests() {
-  console.log('🚀 Running GarageSaarthi Vehicle Inspection Logic Tests...\n');
+  console.log('🚀 Running Z9 Automotive Vehicle Inspection Logic Tests...\n');
   let passed = 0;
   let failed = 0;
 

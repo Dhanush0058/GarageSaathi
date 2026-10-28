@@ -73,7 +73,7 @@ export const ReportViewScreen: React.FC<ReportViewScreenProps> = ({
       {/* Report Info Card */}
       <Card style={styles.reportCard}>
         <View style={styles.badgeRow}>
-          <Text style={styles.confidentialBadge}>CONFIDENTIAL • DETAILR / GARAGESAARTHI</Text>
+          <Text style={styles.confidentialBadge}>CONFIDENTIAL • Z9 AUTOMOTIVE</Text>
         </View>
 
         <Text style={styles.reportTitle}>Vehicle Inspection Report</Text>

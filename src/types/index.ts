@@ -1,4 +1,4 @@
-// TypeScript Domain Interfaces for GarageSaarthi Vehicle Inspection
+// TypeScript Domain Interfaces for Z9 Automotive Vehicle Inspection
 
 export type UserRole = 'admin' | 'owner' | 'manager' | 'inspector' | 'reviewer';
 

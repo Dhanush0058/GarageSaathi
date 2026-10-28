@@ -1,8 +1,8 @@
-// GarageSaarthi Brand Theme Colors
-// Derived directly from https://www.garagesaarthi.com/ and reference inspection report
+// Z9 Automotive Brand Theme Colors
+// Dynamic high-contrast workshop palette: Racing Orange, Dark Slate, Emerald Green, and Amber.
 
 export const Colors = {
-  // Brand Primary (GarageSaarthi Orange)
+  // Brand Primary (Z9 Automotive Vibrant Orange)
   primary: '#FF643C',
   primaryDark: '#B02E0C',
   primaryLight: '#FFF2EE',

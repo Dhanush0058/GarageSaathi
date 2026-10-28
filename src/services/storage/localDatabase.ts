@@ -8,23 +8,23 @@ import { Customer, Vehicle, Inspection, InspectionItemResult, InspectionPhoto, U
 import { calculateInspectionMetrics } from '../../utils/inspectionCalculations';
 
 const KEYS = {
-  CURRENT_USER: '@garagesaarthi:current_user',
-  CUSTOMERS: '@garagesaarthi:customers',
-  VEHICLES: '@garagesaarthi:vehicles',
-  INSPECTIONS: '@garagesaarthi:inspections',
-  UPLOAD_QUEUE: '@garagesaarthi:upload_queue',
-  OFFLINE_MUTATION_QUEUE: '@garagesaarthi:mutation_queue',
+  CURRENT_USER: '@z9automotive:current_user',
+  CUSTOMERS: '@z9automotive:customers',
+  VEHICLES: '@z9automotive:vehicles',
+  INSPECTIONS: '@z9automotive:inspections',
+  UPLOAD_QUEUE: '@z9automotive:upload_queue',
+  OFFLINE_MUTATION_QUEUE: '@z9automotive:mutation_queue',
 };
 
 // Seed sample data for first launch if storage is empty
 export const DEFAULT_USER: UserProfile = {
   id: 'usr-001',
-  email: 'inspector.madhu@garagesaarthi.com',
+  email: 'inspector.madhu@z9automotive.com',
   fullName: 'Madhu Inspector',
   phone: '9876543210',
   role: 'inspector',
   organizationId: 'org-001',
-  organizationName: 'GarageSaarthi Auto Care',
+  organizationName: 'Z9 Automotive Workshop',
   branchId: 'br-001',
   branchName: 'Main Workshop - Madhapur',
 };

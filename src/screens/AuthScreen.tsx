@@ -259,8 +259,8 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.xl,
   },
   logo: {
-    width: 200,
-    height: 60,
+    width: 220,
+    height: 70,
     marginBottom: 8,
   },
   tagline: {

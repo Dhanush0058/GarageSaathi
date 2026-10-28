@@ -254,8 +254,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerLogo: {
-    width: 140,
-    height: 38,
+    width: 156,
+    height: 50,
     marginBottom: 4,
   },
   branchName: {

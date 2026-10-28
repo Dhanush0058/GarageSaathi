@@ -551,7 +551,7 @@ const styles = StyleSheet.create({
   },
   chipActive: {
     backgroundColor: Colors.primary,
-    borderColor: Colors.primary,
+    borderColor: Colors.primaryDark,
   },
   smallChipText: {
     fontSize: 11,
@@ -562,7 +562,7 @@ const styles = StyleSheet.create({
     color: Colors.slate700,
   },
   chipTextActive: {
-    color: Colors.white,
+    color: Colors.primaryText,
     fontWeight: '700',
   },
   photoActions: {

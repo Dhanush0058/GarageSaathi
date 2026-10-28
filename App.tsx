@@ -271,7 +271,7 @@ function AppContent() {
           }}
           style={styles.floatingActionBtn}
         >
-          <Ionicons name="add" size={30} color={Colors.white} />
+          <Ionicons name="add" size={30} color={Colors.primaryText} />
         </TouchableOpacity>
 
         <TouchableOpacity

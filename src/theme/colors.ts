@@ -1,12 +1,13 @@
 // Z9 Automotive Brand Theme Colors
-// Dynamic high-contrast workshop palette: Racing Orange, Dark Slate, Emerald Green, and Amber.
+// Dynamic high-contrast workshop palette: Electric Gold/Yellow, Deep Automotive Black, Crisp White, Emerald Green, and Amber.
 
 export const Colors = {
-  // Brand Primary (Z9 Automotive Vibrant Orange)
-  primary: '#FF643C',
-  primaryDark: '#B02E0C',
-  primaryLight: '#FFF2EE',
-  primarySurface: '#F5EAE7',
+  // Brand Primary (Z9 Automotive Signature Electric Gold / Yellow)
+  primary: '#FFB800',
+  primaryDark: '#D97706',
+  primaryLight: '#FFFBEB',
+  primarySurface: '#FEF3C7',
+  primaryText: '#0A0A0A',
 
   // Status Colors (Subject to high contrast & accessible standards)
   pass: '#16A34A',        // Green for PASS
@@ -17,13 +18,13 @@ export const Colors = {
   failLight: '#FEE2E2',
   failDark: '#7F1D1D',
 
-  pending: '#D97706',     // Amber for PENDING
+  pending: '#F59E0B',     // Amber/Yellow for PENDING
   pendingLight: '#FEF3C7',
   pendingDark: '#78350F',
 
   // Neutrals / Typography
-  slate900: '#0F172A',   // Main header / dark background
-  slate800: '#1E293B',
+  slate900: '#0B0F17',   // Deep Black / Slate for headers and dark mode
+  slate800: '#181E29',
   slate700: '#334155',
   slate600: '#475569',
   slate500: '#64748B',
@@ -40,7 +41,7 @@ export const Colors = {
   cardAlt: '#F1F5F9',
   border: '#E2E8F0',
   borderStrong: '#CBD5E1',
-  textPrimary: '#0F172A',
+  textPrimary: '#0B0F17',
   textSecondary: '#475569',
   textMuted: '#64748B',
   textInverted: '#FFFFFF',
@@ -48,7 +49,7 @@ export const Colors = {
   // Functional Accents
   accentBlue: '#2563EB',
   accentBlueLight: '#EFF6FF',
-  overlay: 'rgba(15, 23, 42, 0.65)',
+  overlay: 'rgba(11, 15, 23, 0.75)',
 };
 
 export const Spacing = {

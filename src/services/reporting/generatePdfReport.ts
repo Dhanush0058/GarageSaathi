@@ -211,7 +211,7 @@ function buildReportHtml(inspection: Inspection): string {
         
         /* HEADER COVER */
         .cover-header {
-          border-bottom: 3px solid #ff643c;
+          border-bottom: 3px solid #FFB800;
           padding-bottom: 12px;
           margin-bottom: 20px;
           display: flex;
@@ -221,7 +221,7 @@ function buildReportHtml(inspection: Inspection): string {
         .brand-title {
           font-size: 22pt;
           font-weight: 800;
-          color: #ff643c;
+          color: #FFB800;
           letter-spacing: -0.5px;
         }
         .brand-subtitle {
@@ -252,7 +252,7 @@ function buildReportHtml(inspection: Inspection): string {
         .vehicle-make {
           font-size: 10pt;
           font-weight: 600;
-          color: #ff643c;
+          color: #FFB800;
           letter-spacing: 1px;
           text-transform: uppercase;
         }
@@ -385,7 +385,7 @@ function buildReportHtml(inspection: Inspection): string {
         .cat-header-brand {
           font-size: 7.5pt;
           font-weight: 700;
-          color: #ff643c;
+          color: #D97706;
           letter-spacing: 1px;
         }
         .cat-header-title {
@@ -402,7 +402,7 @@ function buildReportHtml(inspection: Inspection): string {
           color: #1e293b;
           background: #f1f5f9;
           padding: 5px 8px;
-          border-left: 3px solid #ff643c;
+          border-left: 3px solid #FFB800;
           margin-bottom: 6px;
         }
         .checklist-table {
@@ -517,7 +517,7 @@ function buildReportHtml(inspection: Inspection): string {
         .cert-tag {
           font-size: 9pt;
           font-weight: 800;
-          color: #ff643c;
+          color: #FFB800;
           letter-spacing: 2px;
           text-transform: uppercase;
         }

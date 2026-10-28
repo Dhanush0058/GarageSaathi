@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
   },
   filterChipActive: {
     backgroundColor: Colors.primary,
-    borderColor: Colors.primary,
+    borderColor: Colors.primaryDark,
   },
   filterChipText: {
     fontSize: 10,
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     color: Colors.slate600,
   },
   filterChipTextActive: {
-    color: Colors.white,
+    color: Colors.primaryText,
   },
   listContent: {
     padding: Spacing.md,

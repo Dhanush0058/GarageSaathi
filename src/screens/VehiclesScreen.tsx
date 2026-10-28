@@ -585,14 +585,14 @@ const styles = StyleSheet.create({
   },
   chipActive: {
     backgroundColor: Colors.primary,
-    borderColor: Colors.primary,
+    borderColor: Colors.primaryDark,
   },
   chipText: {
     fontSize: Typography.sizes.xs,
     color: Colors.slate700,
   },
   chipTextActive: {
-    color: Colors.white,
+    color: Colors.primaryText,
     fontWeight: '700',
   },
   chipRow: {

@@ -94,7 +94,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           onPress={onNavigateToCreate}
           style={styles.quickStartBtn}
         >
-          <Ionicons name="add" size={24} color={Colors.white} />
+          <Ionicons name="add" size={24} color={Colors.primaryText} />
         </TouchableOpacity>
       </View>
 
@@ -110,7 +110,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           <Button
             title="Start Now"
             onPress={onNavigateToCreate}
-            icon={<Ionicons name="clipboard-outline" size={18} color={Colors.white} />}
+            icon={<Ionicons name="clipboard-outline" size={18} color={Colors.primaryText} />}
             style={styles.heroBtn}
           />
         </View>
@@ -249,23 +249,29 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: Spacing.lg,
+    backgroundColor: Colors.slate900,
+    padding: Spacing.md,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: Colors.slate800,
   },
   headerTextContainer: {
     flex: 1,
   },
   headerLogo: {
-    width: 156,
-    height: 50,
+    width: 170,
+    height: 56,
     marginBottom: 4,
   },
   branchName: {
     fontSize: Typography.sizes.sm,
     fontWeight: Typography.weights.bold,
-    color: Colors.slate900,
+    color: Colors.white,
   },
   inspectorGreeting: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate500,
+    color: Colors.primary,
+    fontWeight: Typography.weights.semiBold,
   },
   quickStartBtn: {
     width: 48,

@@ -347,6 +347,9 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: Colors.slate900,
+    width: '100%',
+    maxWidth: Platform.OS === 'web' ? 520 : undefined,
+    alignSelf: 'center',
   },
   content: {
     flex: 1,

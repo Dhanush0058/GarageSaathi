@@ -2,6 +2,7 @@
 // Matches the visual hierarchy, scorecard, checklist layout, and certification
 // of the reference 22-page PDI report (PDI-000028) with GarageSaarthi branding.
 
+import { Platform } from 'react-native';
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
 import { Inspection, CategorySummary } from '../../types';
@@ -13,6 +14,19 @@ export async function generateAndShareInspectionPdf(
   mode: 'share' | 'print' = 'share'
 ): Promise<string> {
   const htmlContent = buildReportHtml(inspection);
+
+  if (Platform.OS === 'web') {
+    if (typeof window !== 'undefined') {
+      const printWindow = window.open('', '_blank');
+      if (printWindow) {
+        printWindow.document.write(htmlContent);
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(() => printWindow.print(), 250);
+      }
+    }
+    return 'web-preview-opened';
+  }
 
   const { uri } = await Print.printToFileAsync({
     html: htmlContent,

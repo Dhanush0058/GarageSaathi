@@ -1,6 +1,7 @@
-// Screen B: Home Dashboard — Dark Luxury Automotive Workshop Experience
-// Reference: Motrix Automotive & Z9 Cockpit aesthetic.
-// High contrast, defined borders, interactive metric cards, service categories, and instant inspection launcher.
+// Screen B: Home Dashboard — Hybrid Cinematic Hero & Light Workshop Workspace
+// Reference: Motrix Automotive aesthetic
+// Top half: High-end automotive workshop background image with electric gold accents
+// Bottom half: Crisp light workspace with defined borders, pure dark text, and interactive cards
 
 import React, { useState, useEffect } from 'react';
 import {
@@ -14,7 +15,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Typography } from '../theme/colors';
-import { Card, StatCard, Button, StatusBadge, ProgressBar } from '../components/common';
+import { StatCard, Button, StatusBadge, ProgressBar } from '../components/common';
 import { Inspection, UserProfile } from '../types';
 import { LocalDB } from '../services/storage/localDatabase';
 
@@ -25,18 +26,6 @@ interface HomeScreenProps {
   onNavigateToSummary: (inspectionId: string) => void;
   onNavigateToHistory: (filter?: 'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed') => void;
 }
-
-// 8 Inspection Checkpoint Categories matching reference quick access
-const QUICK_CATEGORIES = [
-  { code: 'EXT', name: 'EXTERIOR', count: 67, icon: 'car-sport-outline' },
-  { code: 'INT', name: 'INTERIOR', count: 71, icon: 'shield-checkmark-outline' },
-  { code: 'ELE', name: 'ELECTRICAL', count: 66, icon: 'flash-outline' },
-  { code: 'ENG', name: 'ENGINE BAY', count: 42, icon: 'hardware-chip-outline' },
-  { code: 'UND', name: 'UNDERBODY', count: 48, icon: 'construct-outline' },
-  { code: 'TYR', name: 'TYRES', count: 15, icon: 'disc-outline' },
-  { code: 'ROA', name: 'ROAD TEST', count: 14, icon: 'speedometer-outline' },
-  { code: 'DOC', name: 'DOCS', count: 13, icon: 'document-text-outline' },
-];
 
 export const HomeScreen: React.FC<HomeScreenProps> = ({
   currentUser,
@@ -107,262 +96,262 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
     <ScrollView
       style={styles.container}
       contentContainerStyle={styles.scrollContent}
+      bounces={false}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#FFB800" />}
     >
-      {/* 1. TOP COCKPIT HEADER */}
-      <View style={styles.header}>
-        <View style={styles.headerTextContainer}>
-          <Image
-            source={require('../../assets/images/logo-dark.png')}
-            style={styles.headerLogo}
-            resizeMode="contain"
-          />
-          <Text style={styles.branchName}>
-            {currentUser.branchName || currentUser.organizationName}
-          </Text>
-          <Text style={styles.inspectorGreeting}>
-            Lead Inspector: <Text style={styles.goldText}>{currentUser.fullName}</Text>
-          </Text>
-        </View>
+      {/* =========================================================================
+          TOP HALF: COOL REALISTIC WORKSHOP BACKGROUND IMAGE & CINEMATIC HERO
+         ========================================================================= */}
+      <View style={styles.heroSection}>
+        {/* Photorealistic workshop background */}
+        <Image
+          source={require('../../assets/images/workshop-bg.jpg')}
+          style={styles.heroBackgroundImage}
+          resizeMode="cover"
+        />
+        {/* Ambient workshop dark vignette overlay */}
+        <View style={styles.heroOverlay} />
 
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={onNavigateToCreate}
-          style={styles.quickStartBtn}
-        >
-          <Ionicons name="add" size={26} color="#080C14" />
-        </TouchableOpacity>
-      </View>
-
-      {/* 2. DATE SCOPE FILTER PILLS (Clean full-width row without sync button) */}
-      <View style={styles.dateFilterContainer}>
-        {(['ALL', 'TODAY', 'WEEK', 'MONTH'] as const).map((dr) => (
-          <TouchableOpacity
-            key={dr}
-            activeOpacity={0.7}
-            onPress={() => setDateRange(dr)}
-            style={[
-              styles.datePill,
-              dateRange === dr && styles.datePillActive,
-            ]}
-          >
-            <Text
-              style={[
-                styles.datePillText,
-                dateRange === dr && styles.datePillTextActive,
-              ]}
-            >
-              {dr === 'ALL'
-                ? 'All Time'
-                : dr === 'TODAY'
-                ? 'Today'
-                : dr === 'WEEK'
-                ? 'This Week'
-                : 'This Month'}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* 3. HERO SHOWCASE CARD (Matching Reference Image 3) */}
-      <View style={styles.heroCard}>
-        <View style={styles.heroGlowCorner} />
-        <View style={styles.heroBadge}>
-          <Text style={styles.heroBadgeText}>PDI & DIAGNOSTICS</Text>
-        </View>
-
-        <Text style={styles.heroTitle}>
-          Keep Every Car <Text style={styles.goldText}>Running Like New</Text>
-        </Text>
-        <Text style={styles.heroSub}>
-          Comprehensive 336-point diagnostic assessment covering Engine Bay, Electricals, Chassis, and Road Test compliance.
-        </Text>
-
-        {/* Dual Action Pill Buttons */}
-        <View style={styles.heroActionsRow}>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={onNavigateToCreate}
-            style={styles.heroPrimaryBtn}
-          >
-            <Text style={styles.heroPrimaryBtnText}>Start Inspection</Text>
-            <Ionicons name="arrow-forward-circle" size={18} color="#080C14" />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => onNavigateToHistory('ALL')}
-            style={styles.heroSecondaryBtn}
-          >
-            <Text style={styles.heroSecondaryBtnText}>View Reports</Text>
-            <Ionicons name="arrow-forward" size={14} color="#FFFFFF" />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      {/* 4. QUICK CHECKPOINT SERVICE PILLS (Matching Reference Image 3 bottom row) */}
-      <View style={styles.quickAccessSection}>
-        <Text style={styles.sectionTitle}>336-POINT INSPECTION CATEGORIES</Text>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.categoryScrollContent}
-        >
-          {QUICK_CATEGORIES.map((cat) => (
-            <TouchableOpacity
-              key={cat.code}
-              activeOpacity={0.75}
-              onPress={onNavigateToCreate}
-              style={styles.categoryPillCard}
-            >
-              <View style={styles.categoryIconCircle}>
-                <Ionicons name={cat.icon as any} size={18} color="#FFB800" />
-              </View>
-              <Text style={styles.categoryNameText}>{cat.name}</Text>
-              <Text style={styles.categoryCountText}>{cat.count} Checks</Text>
-            </TouchableOpacity>
-          ))}
-        </ScrollView>
-      </View>
-
-      {/* 5. WORKSHOP PERFORMANCE METRICS (With High-Contrast Dark Cockpit Borders) */}
-      <View style={styles.metricsHeaderRow}>
-        <Text style={styles.sectionTitle}>WORKSHOP PERFORMANCE METRICS</Text>
-        <Text style={styles.metricsHintText}>Tap card to filter</Text>
-      </View>
-
-      <View style={styles.statsGrid}>
-        <View style={styles.statsRow}>
-          <StatCard
-            title="Total Inspections"
-            value={totalCount}
-            subtitle="Registered vehicles"
-            accentColor="#FFFFFF"
-            icon={<Ionicons name="car-sport" size={18} color="#3B82F6" />}
-            iconBgColor="rgba(59, 130, 246, 0.15)"
-            dark={true}
-            onPress={() => onNavigateToHistory('ALL')}
-          />
-          <StatCard
-            title="In Progress"
-            value={inProgressCount}
-            subtitle="Active drafts"
-            accentColor="#F59E0B"
-            icon={<Ionicons name="time" size={18} color="#F59E0B" />}
-            iconBgColor="rgba(245, 158, 11, 0.15)"
-            dark={true}
-            onPress={() => onNavigateToHistory('in_progress')}
-          />
-        </View>
-        <View style={styles.statsRow}>
-          <StatCard
-            title="Completed"
-            value={completedCount}
-            subtitle="Report certified"
-            accentColor="#10B981"
-            icon={<Ionicons name="checkmark-circle" size={18} color="#10B981" />}
-            iconBgColor="rgba(16, 185, 129, 0.15)"
-            dark={true}
-            onPress={() => onNavigateToHistory('completed')}
-          />
-          <StatCard
-            title="Failed Checks"
-            value={withFailuresCount}
-            subtitle="Vehicles with issues"
-            accentColor="#EF4444"
-            icon={<Ionicons name="alert-circle" size={18} color="#EF4444" />}
-            iconBgColor="rgba(239, 68, 68, 0.15)"
-            dark={true}
-            onPress={() => onNavigateToHistory('failed')}
-          />
-        </View>
-      </View>
-
-      {/* 6. RECENT INSPECTIONS LIST */}
-      <View style={styles.recentHeader}>
-        <Text style={styles.sectionTitle}>RECENT INSPECTIONS</Text>
-        {totalCount > 0 ? (
-          <TouchableOpacity onPress={() => onNavigateToHistory('ALL')}>
-            <Text style={styles.viewAllText}>View All ({totalCount})</Text>
-          </TouchableOpacity>
-        ) : null}
-      </View>
-
-      {recentInspections.length === 0 ? (
-        <View style={styles.emptyCard}>
-          <Ionicons name="car-outline" size={48} color="#334155" />
-          <Text style={styles.emptyTitle}>No inspections recorded yet</Text>
-          <Text style={styles.emptySub}>
-            Begin by conducting your first 336-point vehicle inspection with photographic evidence now.
-          </Text>
-          <Button
-            title="Start First Inspection"
-            onPress={onNavigateToCreate}
-            icon={<Ionicons name="add-circle" size={18} color="#080C14" />}
-            style={styles.emptyCtaBtn}
-          />
-        </View>
-      ) : (
-        recentInspections.map((item) => (
-          <TouchableOpacity
-            key={item.id}
-            activeOpacity={0.8}
-            onPress={() =>
-              item.status === 'completed'
-                ? onNavigateToSummary(item.id)
-                : onNavigateToChecklist(item.id)
-            }
-            style={styles.inspectionCard}
-          >
-            <View style={styles.inspectionCardHeader}>
-              <View>
-                <Text style={styles.vehicleReg}>
-                  {item.vehicle?.registrationNumber || item.reportId}
-                </Text>
-                <Text style={styles.vehicleMakeModel}>
-                  {item.vehicle?.make} {item.vehicle?.model} {item.vehicle?.variant || ''}
-                </Text>
-              </View>
-              <StatusBadge status={item.status} />
-            </View>
-
-            <View style={styles.customerRow}>
-              <Ionicons name="person" size={13} color="#FFB800" />
-              <Text style={styles.customerName}>
-                {item.customer?.name || 'Customer'} • {item.reportId}
-              </Text>
-            </View>
-
-            {/* Progress indicators */}
-            <View style={styles.progressSection}>
-              <View style={styles.progressLabels}>
-                <Text style={styles.progressLabel}>
-                  {item.scoredItems || 0} / {item.totalItems || 336} Checks Completed
-                </Text>
-                <Text style={styles.progressPct}>
-                  Pass: {item.passPercentage || 0}%
-                </Text>
-              </View>
-              <ProgressBar
-                percentage={item.completionPercentage || 0}
-                color={item.passPercentage === 100 ? '#10B981' : '#FFB800'}
+        <View style={styles.heroInnerContent}>
+          {/* 1. Header Bar */}
+          <View style={styles.header}>
+            <View style={styles.headerTextContainer}>
+              <Image
+                source={require('../../assets/images/logo-dark.png')}
+                style={styles.headerLogo}
+                resizeMode="contain"
               />
+              <Text style={styles.branchName}>
+                {currentUser.branchName || currentUser.organizationName}
+              </Text>
+              <Text style={styles.inspectorGreeting}>
+                Lead Inspector: <Text style={styles.goldText}>{currentUser.fullName}</Text>
+              </Text>
             </View>
 
-            <View style={styles.cardFooter}>
-              <Text style={styles.dateText}>
-                {new Date(item.inspectionDate).toLocaleDateString()}
-              </Text>
-              <View style={styles.footerAction}>
-                <Text style={styles.footerActionText}>
-                  {item.status === 'completed' ? 'View Certified Report' : 'Continue Inspection'}
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={onNavigateToCreate}
+              style={styles.quickStartBtn}
+            >
+              <Ionicons name="add" size={26} color="#080C14" />
+            </TouchableOpacity>
+          </View>
+
+          {/* 2. Date Scope Filter Pills (Translucent Frosted Glass) */}
+          <View style={styles.dateFilterContainer}>
+            {(['ALL', 'TODAY', 'WEEK', 'MONTH'] as const).map((dr) => (
+              <TouchableOpacity
+                key={dr}
+                activeOpacity={0.7}
+                onPress={() => setDateRange(dr)}
+                style={[
+                  styles.datePill,
+                  dateRange === dr && styles.datePillActive,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.datePillText,
+                    dateRange === dr && styles.datePillTextActive,
+                  ]}
+                >
+                  {dr === 'ALL'
+                    ? 'All Time'
+                    : dr === 'TODAY'
+                    ? 'Today'
+                    : dr === 'WEEK'
+                    ? 'This Week'
+                    : 'This Month'}
                 </Text>
-                <Ionicons name="arrow-forward" size={14} color="#FFB800" />
-              </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {/* 3. Hero Showcase Text & Action Buttons (Matching Reference Image) */}
+          <View style={styles.heroContentBlock}>
+            <View style={styles.heroBadge}>
+              <Text style={styles.heroBadgeText}>PDI & DIAGNOSTICS</Text>
             </View>
-          </TouchableOpacity>
-        ))
-      )}
+
+            <Text style={styles.heroTitle}>
+              Keep Every Car{'\n'}
+              <Text style={styles.goldText}>Running Like New</Text>
+            </Text>
+
+            <Text style={styles.heroSub}>
+              Comprehensive 336-point diagnostic assessment covering Engine Bay, Electricals, Chassis, and Road Test compliance.
+            </Text>
+
+            {/* Dual Action Pill Buttons */}
+            <View style={styles.heroActionsRow}>
+              <TouchableOpacity
+                activeOpacity={0.85}
+                onPress={onNavigateToCreate}
+                style={styles.heroPrimaryBtn}
+              >
+                <Text style={styles.heroPrimaryBtnText}>Start Inspection</Text>
+                <Ionicons name="arrow-forward-circle" size={20} color="#080C14" />
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                activeOpacity={0.85}
+                onPress={() => onNavigateToHistory('ALL')}
+                style={styles.heroSecondaryBtn}
+              >
+                <Text style={styles.heroSecondaryBtnText}>View Reports</Text>
+                <Ionicons name="arrow-forward" size={16} color="#FFFFFF" />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </View>
+
+      {/* =========================================================================
+          BOTTOM HALF: CRISP LIGHT WORKSPACE (Light colors, pure dark text, defined borders)
+         ========================================================================= */}
+      <View style={styles.lightWorkspace}>
+        {/* WORKSHOP PERFORMANCE METRICS */}
+        <View style={styles.metricsHeaderRow}>
+          <Text style={styles.sectionTitleDark}>WORKSHOP PERFORMANCE METRICS</Text>
+          <Text style={styles.metricsHintTextLight}>Tap card to filter</Text>
+        </View>
+
+        <View style={styles.statsGrid}>
+          <View style={styles.statsRow}>
+            <StatCard
+              title="Total Inspections"
+              value={totalCount}
+              subtitle="Registered vehicles"
+              accentColor="#0F172A"
+              icon={<Ionicons name="car-sport" size={18} color="#2563EB" />}
+              iconBgColor="rgba(37, 99, 235, 0.12)"
+              dark={false}
+              onPress={() => onNavigateToHistory('ALL')}
+            />
+            <StatCard
+              title="In Progress"
+              value={inProgressCount}
+              subtitle="Active drafts"
+              accentColor="#D97706"
+              icon={<Ionicons name="time" size={18} color="#D97706" />}
+              iconBgColor="rgba(217, 119, 6, 0.12)"
+              dark={false}
+              onPress={() => onNavigateToHistory('in_progress')}
+            />
+          </View>
+          <View style={styles.statsRow}>
+            <StatCard
+              title="Completed"
+              value={completedCount}
+              subtitle="Report certified"
+              accentColor="#059669"
+              icon={<Ionicons name="checkmark-circle" size={18} color="#059669" />}
+              iconBgColor="rgba(5, 150, 105, 0.12)"
+              dark={false}
+              onPress={() => onNavigateToHistory('completed')}
+            />
+            <StatCard
+              title="Failed Checks"
+              value={withFailuresCount}
+              subtitle="Vehicles with issues"
+              accentColor="#DC2626"
+              icon={<Ionicons name="alert-circle" size={18} color="#DC2626" />}
+              iconBgColor="rgba(220, 38, 38, 0.12)"
+              dark={false}
+              onPress={() => onNavigateToHistory('failed')}
+            />
+          </View>
+        </View>
+
+        {/* RECENT INSPECTIONS */}
+        <View style={styles.recentHeader}>
+          <Text style={styles.sectionTitleDark}>RECENT INSPECTIONS</Text>
+          {totalCount > 0 ? (
+            <TouchableOpacity onPress={() => onNavigateToHistory('ALL')}>
+              <Text style={styles.viewAllTextLight}>View All ({totalCount})</Text>
+            </TouchableOpacity>
+          ) : null}
+        </View>
+
+        {recentInspections.length === 0 ? (
+          <View style={styles.emptyCardLight}>
+            <View style={styles.emptyIconCircle}>
+              <Ionicons name="car-sport-outline" size={38} color="#64748B" />
+            </View>
+            <Text style={styles.emptyTitleDark}>No inspections recorded yet</Text>
+            <Text style={styles.emptySubDark}>
+              Begin by conducting your first 336-point vehicle inspection with photographic evidence now.
+            </Text>
+            <Button
+              title="Start First Inspection"
+              onPress={onNavigateToCreate}
+              icon={<Ionicons name="add-circle" size={18} color="#080C14" />}
+              style={styles.emptyCtaBtn}
+            />
+          </View>
+        ) : (
+          recentInspections.map((item) => (
+            <TouchableOpacity
+              key={item.id}
+              activeOpacity={0.8}
+              onPress={() =>
+                item.status === 'completed'
+                  ? onNavigateToSummary(item.id)
+                  : onNavigateToChecklist(item.id)
+              }
+              style={styles.inspectionCardLight}
+            >
+              <View style={styles.inspectionCardHeader}>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.vehicleRegDark}>
+                    {item.vehicle?.registrationNumber || item.reportId}
+                  </Text>
+                  <Text style={styles.vehicleMakeModelDark}>
+                    {item.vehicle?.make} {item.vehicle?.model} {item.vehicle?.variant || ''}
+                  </Text>
+                </View>
+                <StatusBadge status={item.status} />
+              </View>
+
+              <View style={styles.customerRow}>
+                <Ionicons name="person" size={13} color="#D97706" />
+                <Text style={styles.customerNameDark}>
+                  {item.customer?.name || 'Customer'} • {item.reportId}
+                </Text>
+              </View>
+
+              {/* Progress indicators */}
+              <View style={styles.progressSection}>
+                <View style={styles.progressLabels}>
+                  <Text style={styles.progressLabelDark}>
+                    {item.scoredItems || 0} / {item.totalItems || 336} Checks Completed
+                  </Text>
+                  <Text style={styles.progressPctDark}>
+                    Pass: {item.passPercentage || 0}%
+                  </Text>
+                </View>
+                <ProgressBar
+                  percentage={item.completionPercentage || 0}
+                  color={item.passPercentage === 100 ? '#059669' : '#FFB800'}
+                />
+              </View>
+
+              <View style={styles.cardFooterLight}>
+                <Text style={styles.dateTextDark}>
+                  {new Date(item.inspectionDate).toLocaleDateString()}
+                </Text>
+                <View style={styles.footerAction}>
+                  <Text style={styles.footerActionTextDark}>
+                    {item.status === 'completed' ? 'View Certified Report' : 'Continue Inspection'}
+                  </Text>
+                  <Ionicons name="arrow-forward" size={14} color="#D97706" />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ))
+        )}
+      </View>
     </ScrollView>
   );
 };
@@ -370,11 +359,34 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#080C14', // Deep dark luxury automotive cockpit background
+    backgroundColor: '#080C14',
   },
   scrollContent: {
-    padding: Spacing.lg,
-    paddingBottom: Spacing.xxxl + 20,
+    flexGrow: 1,
+    backgroundColor: '#F8FAFC',
+  },
+
+  // -------------------------------------------------------------------------
+  // HERO SECTION (TOP HALF)
+  // -------------------------------------------------------------------------
+  heroSection: {
+    position: 'relative',
+    backgroundColor: '#080C14',
+    paddingBottom: 28,
+    overflow: 'hidden',
+  },
+  heroBackgroundImage: {
+    ...StyleSheet.absoluteFill,
+    width: '100%',
+    height: '100%',
+  },
+  heroOverlay: {
+    ...StyleSheet.absoluteFill,
+    backgroundColor: 'rgba(8, 12, 20, 0.78)',
+  },
+  heroInnerContent: {
+    paddingHorizontal: Spacing.lg,
+    paddingTop: Spacing.md,
   },
   header: {
     flexDirection: 'row',
@@ -413,289 +425,304 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFB800',
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 6,
     shadowColor: '#FFB800',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.35,
-    shadowRadius: 5,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
   },
 
-  // Date Filter Pills Row
+  // Date Filter Pills (Frosted Glass style)
   dateFilterContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 12,
+    padding: 4,
     marginBottom: Spacing.lg,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
   },
   datePill: {
     flex: 1,
-    alignItems: 'center',
     paddingVertical: 8,
+    alignItems: 'center',
     borderRadius: 8,
-    backgroundColor: '#0F172A',
-    borderWidth: 1.5,
-    borderColor: '#1E293B',
   },
   datePillActive: {
     backgroundColor: '#FFB800',
-    borderColor: '#FFC700',
-  },
-  datePillText: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: '#94A3B8',
-  },
-  datePillTextActive: {
-    color: '#080C14',
-    fontWeight: '900',
-  },
-
-  // Hero Card (Matching Reference Image 3)
-  heroCard: {
-    backgroundColor: '#0F172A',
-    borderRadius: 16,
-    borderWidth: 1.5,
-    borderColor: '#1E293B',
-    padding: Spacing.lg,
-    marginBottom: Spacing.lg,
-    overflow: 'hidden',
-    position: 'relative',
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 4,
-  },
-  heroGlowCorner: {
-    position: 'absolute',
-    top: -40,
-    right: -40,
-    width: 140,
-    height: 140,
-    borderRadius: 70,
-    backgroundColor: 'rgba(255, 184, 0, 0.08)',
-  },
-  heroBadge: {
-    alignSelf: 'flex-start',
-    backgroundColor: 'rgba(255, 184, 0, 0.15)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 184, 0, 0.4)',
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 6,
-    marginBottom: 8,
-  },
-  heroBadgeText: {
-    color: '#FFB800',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 1.5,
-  },
-  heroTitle: {
-    fontSize: 20,
-    fontWeight: '900',
-    color: '#FFFFFF',
-    letterSpacing: -0.3,
-    lineHeight: 26,
-    marginBottom: 6,
-  },
-  heroSub: {
-    fontSize: 12,
-    color: '#CBD5E1',
-    lineHeight: 18,
-    fontWeight: '500',
-    marginBottom: 16,
-  },
-  heroActionsRow: {
-    flexDirection: 'row',
-    gap: 10,
-  },
-  heroPrimaryBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    backgroundColor: '#FFB800',
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 24,
     shadowColor: '#FFB800',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 3,
   },
-  heroPrimaryBtnText: {
-    fontSize: 12,
-    fontWeight: '900',
-    color: '#080C14',
+  datePillText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#E2E8F0',
   },
-  heroSecondaryBtn: {
+  datePillTextActive: {
+    color: '#080C14',
+    fontWeight: '900',
+  },
+
+  // Hero Content Block
+  heroContentBlock: {
+    marginTop: 4,
+  },
+  heroBadge: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(255, 184, 0, 0.15)',
+    borderWidth: 1,
+    borderColor: '#FFB800',
+    borderRadius: 6,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    marginBottom: 10,
+  },
+  heroBadgeText: {
+    fontSize: 10,
+    fontWeight: '900',
+    color: '#FFB800',
+    letterSpacing: 1.2,
+  },
+  heroTitle: {
+    fontSize: 26,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    lineHeight: 32,
+    letterSpacing: 0.3,
+    marginBottom: 8,
+  },
+  heroSub: {
+    fontSize: 13,
+    color: '#CBD5E1',
+    lineHeight: 19,
+    fontWeight: '500',
+    marginBottom: 18,
+  },
+  heroActionsRow: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  heroPrimaryBtn: {
+    flex: 1.3,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    borderWidth: 1,
-    borderColor: '#334155',
-    paddingVertical: 10,
-    paddingHorizontal: 16,
+    justifyContent: 'center',
+    backgroundColor: '#FFB800',
     borderRadius: 24,
+    paddingVertical: 13,
+    paddingHorizontal: 16,
+    gap: 8,
+    shadowColor: '#FFB800',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  heroPrimaryBtnText: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#080C14',
+    letterSpacing: 0.2,
+  },
+  heroSecondaryBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    borderRadius: 24,
+    paddingVertical: 13,
+    paddingHorizontal: 14,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    gap: 6,
   },
   heroSecondaryBtnText: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '800',
     color: '#FFFFFF',
   },
 
-  // Quick Checkpoint Service Pills (Matching Reference Image 3 bottom row)
-  quickAccessSection: {
-    marginBottom: Spacing.lg,
-  },
-  categoryScrollContent: {
-    gap: 8,
-    paddingVertical: 2,
-  },
-  categoryPillCard: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#0F172A',
-    borderWidth: 1.5,
-    borderColor: '#1E293B',
-    borderRadius: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
-    minWidth: 92,
-  },
-  categoryIconCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 184, 0, 0.12)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 6,
-  },
-  categoryNameText: {
-    fontSize: 10,
-    fontWeight: '800',
-    color: '#FFFFFF',
-    letterSpacing: 0.5,
-  },
-  categoryCountText: {
-    fontSize: 9,
-    fontWeight: '600',
-    color: '#FFB800',
-    marginTop: 2,
+  // -------------------------------------------------------------------------
+  // LIGHT WORKSPACE SECTION (BOTTOM HALF)
+  // -------------------------------------------------------------------------
+  lightWorkspace: {
+    backgroundColor: '#F8FAFC',
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    paddingHorizontal: Spacing.lg,
+    paddingTop: 24,
+    paddingBottom: Spacing.xxxl + 20,
+    marginTop: -16, // Smooth curved overlap on the hero
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderColor: '#E2E8F0',
   },
 
-  // Metrics Section
+  // Section Headers
   metricsHeaderRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: Spacing.xs,
+    marginBottom: Spacing.md,
   },
-  metricsHintText: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: '#FFB800',
-  },
-  sectionTitle: {
+  sectionTitleDark: {
     fontSize: 12,
     fontWeight: '900',
-    color: '#FFFFFF',
-    letterSpacing: 0.8,
-    marginBottom: Spacing.sm,
+    color: '#0F172A',
+    letterSpacing: 1.2,
     textTransform: 'uppercase',
   },
+  metricsHintTextLight: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#D97706',
+  },
+
+  // Metrics Grid
   statsGrid: {
-    marginBottom: Spacing.lg,
+    marginBottom: Spacing.xl,
+    gap: 10,
   },
   statsRow: {
     flexDirection: 'row',
-    marginBottom: 8,
+    gap: 10,
   },
 
-  // Recent Inspections
+  // Recent Inspections Header
   recentHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: Spacing.sm,
+    marginBottom: Spacing.md,
   },
-  viewAllText: {
-    fontSize: Typography.sizes.xs,
-    fontWeight: '900',
-    color: '#FFB800',
+  viewAllTextLight: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#D97706',
   },
-  inspectionCard: {
-    backgroundColor: '#0F172A',
-    padding: Spacing.md,
-    borderRadius: 12,
+
+  // Empty State Card (Light workspace)
+  emptyCardLight: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: Spacing.xl,
+    alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#1E293B',
-    marginBottom: 10,
-    shadowColor: '#000000',
+    borderColor: '#E2E8F0',
+    shadowColor: '#64748B',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowOpacity: 0.05,
+    shadowRadius: 6,
+    elevation: 2,
+    marginTop: 4,
+  },
+  emptyIconCircle: {
+    width: 68,
+    height: 68,
+    borderRadius: 34,
+    backgroundColor: '#F1F5F9',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  emptyTitleDark: {
+    fontSize: Typography.sizes.base,
+    fontWeight: '900',
+    color: '#0F172A',
+    marginBottom: 4,
+  },
+  emptySubDark: {
+    fontSize: Typography.sizes.xs,
+    color: '#64748B',
+    textAlign: 'center',
+    lineHeight: 18,
+    marginBottom: Spacing.lg,
+    paddingHorizontal: Spacing.md,
+    fontWeight: '500',
+  },
+  emptyCtaBtn: {
+    width: '100%',
+    backgroundColor: '#FFB800',
+  },
+
+  // Inspection Cards (Light workspace)
+  inspectionCardLight: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: Spacing.lg,
+    marginBottom: Spacing.md,
+    borderWidth: 1.5,
+    borderColor: '#E2E8F0',
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 6,
     elevation: 2,
   },
   inspectionCardHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 6,
+    marginBottom: 8,
   },
-  vehicleReg: {
+  vehicleRegDark: {
     fontSize: 16,
     fontWeight: '900',
-    color: '#FFFFFF',
+    color: '#0F172A',
+    letterSpacing: 0.3,
   },
-  vehicleMakeModel: {
-    fontSize: 13,
-    color: '#FFB800',
-    fontWeight: '700',
-    marginTop: 1,
+  vehicleMakeModelDark: {
+    fontSize: Typography.sizes.xs,
+    color: '#64748B',
+    fontWeight: '600',
+    marginTop: 2,
   },
   customerRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 5,
+    gap: 6,
     marginBottom: 10,
   },
-  customerName: {
+  customerNameDark: {
     fontSize: 12,
-    color: '#E2E8F0',
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#334155',
   },
   progressSection: {
-    marginBottom: 10,
+    marginBottom: 12,
   },
   progressLabels: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 4,
   },
-  progressLabel: {
+  progressLabelDark: {
     fontSize: 11,
-    color: '#94A3B8',
-    fontWeight: '600',
+    color: '#64748B',
+    fontWeight: '700',
   },
-  progressPct: {
+  progressPctDark: {
     fontSize: 11,
     fontWeight: '900',
-    color: '#FFFFFF',
+    color: '#0F172A',
   },
-  cardFooter: {
+  cardFooterLight: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     borderTopWidth: 1,
-    borderTopColor: '#1E293B',
-    paddingTop: 8,
-    marginTop: 4,
+    borderTopColor: '#F1F5F9',
+    paddingTop: 10,
+    marginTop: 2,
   },
-  dateText: {
+  dateTextDark: {
     fontSize: 11,
     color: '#94A3B8',
     fontWeight: '600',
@@ -705,35 +732,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
-  footerActionText: {
+  footerActionTextDark: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#FFB800',
-  },
-  emptyCard: {
-    backgroundColor: '#0F172A',
-    borderWidth: 1.5,
-    borderColor: '#1E293B',
-    borderRadius: 14,
-    alignItems: 'center',
-    padding: Spacing.xl,
-  },
-  emptyTitle: {
-    fontSize: 16,
-    fontWeight: '900',
-    color: '#FFFFFF',
-    marginTop: Spacing.md,
-  },
-  emptySub: {
-    fontSize: 12,
-    color: '#94A3B8',
-    fontWeight: '500',
-    textAlign: 'center',
-    marginTop: 4,
-    marginBottom: Spacing.lg,
-    lineHeight: 18,
-  },
-  emptyCtaBtn: {
-    width: '100%',
+    color: '#D97706',
   },
 });

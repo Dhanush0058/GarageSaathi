@@ -13,7 +13,7 @@ export async function generateAndShareInspectionPdf(
   inspection: Inspection,
   mode: 'share' | 'print' = 'share'
 ): Promise<string> {
-  const htmlContent = buildReportHtml(inspection);
+  const htmlContent = await buildReportHtml(inspection);
 
   if (Platform.OS === 'web') {
     if (typeof window !== 'undefined') {
@@ -49,10 +49,67 @@ export async function generateAndShareInspectionPdf(
   return uri;
 }
 
-function buildReportHtml(inspection: Inspection): string {
+async function resolvePhotoSrc(photo: any): Promise<string> {
+  // 1. Cloud storage URL (Supabase HTTPS)
+  if (
+    photo.storagePath &&
+    (photo.storagePath.startsWith('http://') || photo.storagePath.startsWith('https://'))
+  ) {
+    return photo.storagePath;
+  }
+  // 2. Base64 data string
+  if (photo.base64) {
+    return photo.base64.startsWith('data:')
+      ? photo.base64
+      : `data:image/jpeg;base64,${photo.base64}`;
+  }
+  // 3. Local file URI -> convert to base64 Data URI so WebView print engine never blocks it
+  if (photo.localUri) {
+    if (
+      photo.localUri.startsWith('data:') ||
+      photo.localUri.startsWith('http://') ||
+      photo.localUri.startsWith('https://')
+    ) {
+      return photo.localUri;
+    }
+    try {
+      if (Platform.OS === 'web') {
+        const response = await fetch(photo.localUri);
+        const blob = await response.blob();
+        return await new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.onerror = () => resolve(photo.localUri || '');
+          reader.readAsDataURL(blob);
+        });
+      } else {
+        const FileSystem = require('expo-file-system/legacy');
+        if (FileSystem && FileSystem.readAsStringAsync) {
+          const b64 = await FileSystem.readAsStringAsync(photo.localUri, {
+            encoding: 'base64',
+          });
+          return `data:image/jpeg;base64,${b64}`;
+        }
+      }
+    } catch (err) {
+      console.warn('Could not read photo as base64 in PDF generator:', err);
+    }
+    return photo.localUri;
+  }
+  return '';
+}
+
+async function buildReportHtml(inspection: Inspection): Promise<string> {
   const metrics = calculateInspectionMetrics(inspection.results);
   const results = inspection.results || {};
   const photos = inspection.photos || [];
+
+  const resolvedPhotos = await Promise.all(
+    photos.map(async (p) => ({
+      ...p,
+      resolvedSrc: await resolvePhotoSrc(p),
+    }))
+  );
 
   const customerName = inspection.customer?.name || 'Customer';
   const customerPhone = inspection.customer?.phone || 'N/A';
@@ -152,7 +209,7 @@ function buildReportHtml(inspection: Inspection): string {
 
   // Photo gallery HTML
   const photosHtml =
-    photos.length > 0
+    resolvedPhotos.length > 0
       ? `
     <div class="category-block page-break">
       <div class="cat-header">
@@ -160,13 +217,13 @@ function buildReportHtml(inspection: Inspection): string {
         <div class="cat-header-title">Photographic Inspection Evidence</div>
       </div>
       <div class="photo-grid">
-        ${photos
+        ${resolvedPhotos
           .map(
             (p) => `
           <div class="photo-card">
             ${
-              p.localUri
-                ? `<img src="${p.localUri}" class="photo-img" />`
+              p.resolvedSrc
+                ? `<img src="${p.resolvedSrc}" class="photo-img" />`
                 : `<div class="photo-placeholder">Evidence Photo (${p.photoType})</div>`
             }
             <div class="photo-caption">${escapeHtml(p.caption || p.photoType)}</div>

@@ -2,6 +2,7 @@
 // Handles Camera capture, Gallery selection, base64 / local caching,
 // and Supabase Storage upload with persistent offline retry queue.
 
+import { Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { InspectionPhoto } from '../../types';
 import { LocalDB } from './localDatabase';
@@ -63,6 +64,7 @@ export const ImageService = {
   async attachPhoto(params: {
     inspectionId: string;
     localUri: string;
+    base64?: string;
     photoType: InspectionPhoto['photoType'];
     resultId?: string;
     categoryCode?: string;
@@ -71,12 +73,34 @@ export const ImageService = {
     const photoId = `photo-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
     const fileName = `${params.inspectionId}/${photoId}.jpg`;
 
+    let base64Data = params.base64;
+    if (!base64Data && params.localUri) {
+      try {
+        if (Platform.OS === 'web') {
+          const res = await fetch(params.localUri);
+          const blob = await res.blob();
+          base64Data = await new Promise<string>((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              const str = reader.result as string;
+              resolve(str.replace(/^data:image\/[a-z]+;base64,/, ''));
+            };
+            reader.onerror = () => resolve('');
+            reader.readAsDataURL(blob);
+          });
+        }
+      } catch (err) {
+        // Fallback
+      }
+    }
+
     const photoRecord: InspectionPhoto = {
       id: photoId,
       inspectionId: params.inspectionId,
       resultId: params.resultId,
       categoryCode: params.categoryCode,
       localUri: params.localUri,
+      base64: base64Data,
       fileName,
       storagePath: fileName,
       mimeType: 'image/jpeg',
@@ -130,7 +154,22 @@ export const ImageService = {
           });
 
         if (!error) {
-          // Successfully uploaded to Supabase Storage
+          // Successfully uploaded to Supabase Storage: fetch permanent public Cloud URL
+          const { data: publicData } = supabase.storage
+            .from('inspection-photos')
+            .getPublicUrl(item.fileName);
+
+          if (publicData?.publicUrl) {
+            const inspection = await LocalDB.getInspectionById(item.inspectionId);
+            if (inspection && inspection.photos) {
+              const photoIndex = inspection.photos.findIndex((p) => p.id === item.id);
+              if (photoIndex !== -1) {
+                inspection.photos[photoIndex].storagePath = publicData.publicUrl;
+                inspection.photos[photoIndex].syncStatus = 'synced';
+                await LocalDB.saveInspection(inspection);
+              }
+            }
+          }
           await LocalDB.dequeueUpload(item.id);
         } else {
           console.warn('Upload error for item:', item.id, error.message);

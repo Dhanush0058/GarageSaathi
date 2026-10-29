@@ -79,6 +79,7 @@ export interface InspectionPhoto {
   categoryCode?: string;
   localUri?: string;
   storagePath?: string;
+  base64?: string;
   fileName: string;
   fileSize?: number;
   mimeType: string;

@@ -16,6 +16,7 @@ import { Colors, Spacing, Typography } from '../theme/colors';
 import { Card, StatusBadge, ProgressBar } from '../components/common';
 import { Inspection } from '../types';
 import { LocalDB } from '../services/storage/localDatabase';
+import { useSmartNavigation } from '../utils/useSmartNavigation';
 
 interface InspectionHistoryScreenProps {
   initialFilter?: 'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed';
@@ -28,6 +29,7 @@ export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = (
   onSelectInspection,
   onBack,
 }) => {
+  const panHandlers = useSmartNavigation(onBack);
   const [inspections, setInspections] = useState<Inspection[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed'>(
@@ -70,13 +72,16 @@ export const InspectionHistoryScreen: React.FC<InspectionHistoryScreenProps> = (
   });
 
   return (
-    <View style={styles.container}>
-      {/* Top Header */}
+    <View style={styles.container} {...panHandlers}>
+      {/* Top Header with Z9 Theme */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={onBack} style={styles.backBtn}>
-          <Ionicons name="arrow-back" size={22} color={Colors.white} />
+        <TouchableOpacity onPress={onBack} activeOpacity={0.7} style={styles.backBtn}>
+          <Ionicons name="arrow-back" size={20} color="#FFB800" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Inspection History</Text>
+        <View style={styles.headerTitleContainer}>
+          <Text style={styles.headerBrandTag}>Z9 AUTOMOTIVE</Text>
+          <Text style={styles.headerTitle}>Inspection History</Text>
+        </View>
       </View>
 
       {/* Search Input */}
@@ -183,19 +188,40 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   header: {
-    backgroundColor: Colors.slate900,
+    backgroundColor: '#080C14',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: Spacing.md,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: 12,
+    borderBottomWidth: 2,
+    borderBottomColor: '#FFB800',
   },
   backBtn: {
-    padding: 6,
-    marginRight: 8,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#181E29',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+    borderWidth: 1,
+    borderColor: '#334155',
+  },
+  headerTitleContainer: {
+    flex: 1,
+  },
+  headerBrandTag: {
+    fontSize: 9,
+    fontWeight: '900',
+    color: '#FFB800',
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
   },
   headerTitle: {
-    fontSize: Typography.sizes.base,
-    fontWeight: Typography.weights.bold,
-    color: Colors.white,
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    letterSpacing: 0.3,
   },
   searchContainer: {
     backgroundColor: Colors.white,

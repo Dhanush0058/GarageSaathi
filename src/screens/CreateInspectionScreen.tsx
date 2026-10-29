@@ -18,6 +18,7 @@ import { Customer, Vehicle, Inspection, UserProfile } from '../types';
 import { LocalDB } from '../services/storage/localDatabase';
 import { ImageService } from '../services/storage/imageService';
 import { ALL_CHECKLIST_ITEMS } from '../data/checklistDefinition';
+import { useSmartNavigation } from '../utils/useSmartNavigation';
 
 interface CreateInspectionScreenProps {
   currentUser: UserProfile;
@@ -56,6 +57,8 @@ export const CreateInspectionScreen: React.FC<CreateInspectionScreenProps> = ({
   const [notes, setNotes] = useState('');
   const [photoUris, setPhotoUris] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const panHandlers = useSmartNavigation(onCancel);
 
   useEffect(() => {
     async function init() {
@@ -139,8 +142,20 @@ export const CreateInspectionScreen: React.FC<CreateInspectionScreenProps> = ({
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
-      {/* Step Tracker */}
+    <View style={styles.container} {...panHandlers}>
+      {/* Z9 Themed Header */}
+      <View style={styles.header}>
+        <TouchableOpacity onPress={onCancel} activeOpacity={0.7} style={styles.backBtn}>
+          <Ionicons name="close" size={20} color="#FFB800" />
+        </TouchableOpacity>
+        <View style={styles.headerTitles}>
+          <Text style={styles.headerBrandTag}>Z9 AUTOMOTIVE</Text>
+          <Text style={styles.headerTitle}>New Vehicle Inspection</Text>
+        </View>
+      </View>
+
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent}>
+        {/* Step Tracker */}
       <View style={styles.stepper}>
         <View style={[styles.stepItem, step >= 1 && styles.stepItemActive]}>
           <Text style={[styles.stepText, step >= 1 && styles.stepTextActive]}>1. Client</Text>
@@ -388,7 +403,8 @@ export const CreateInspectionScreen: React.FC<CreateInspectionScreenProps> = ({
           </View>
         </Card>
       )}
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -396,6 +412,42 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
+  },
+  header: {
+    backgroundColor: '#080C14',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: Spacing.md,
+    paddingVertical: 12,
+    borderBottomWidth: 2,
+    borderBottomColor: '#FFB800',
+  },
+  backBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#181E29',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+    borderWidth: 1,
+    borderColor: '#334155',
+  },
+  headerTitles: {
+    flex: 1,
+  },
+  headerBrandTag: {
+    fontSize: 9,
+    fontWeight: '900',
+    color: '#FFB800',
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+  },
+  headerTitle: {
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    letterSpacing: 0.3,
   },
   scrollContent: {
     padding: Spacing.md,

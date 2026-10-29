@@ -17,6 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Typography } from './src/theme/colors';
 import { UserProfile, Vehicle } from './src/types';
 import { LocalDB } from './src/services/storage/localDatabase';
+import { IntroSplashAnimation, LoadingInspectionAnimation } from './src/components/common';
 
 // Screens
 import { AuthScreen } from './src/screens/AuthScreen';
@@ -43,6 +44,7 @@ function AppContent() {
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('home');
   const [loadingApp, setLoadingApp] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
   const [historyFilter, setHistoryFilter] = useState<
     'ALL' | 'draft' | 'in_progress' | 'completed' | 'failed'
   >('ALL');
@@ -79,12 +81,16 @@ function AppContent() {
 
   if (loadingApp) {
     return (
-      <View style={styles.centerContainer}>
-        <StatusBar style="light" />
-        <Text style={styles.loadingBrand}>Z9 AUTOMOTIVE</Text>
-        <Text style={styles.loadingSub}>Vehicle Inspection Platform</Text>
-      </View>
+      <LoadingInspectionAnimation
+        message="Initializing Z9 Automotive..."
+        subMessage="Syncing local SQLite storage & offline queue"
+        dark={true}
+      />
     );
+  }
+
+  if (showIntro) {
+    return <IntroSplashAnimation onFinish={() => setShowIntro(false)} />;
   }
 
   // If user is not authenticated and not on profile tab, show AuthScreen
@@ -344,9 +350,11 @@ function ReportWrapper({
 
   if (!inspection) {
     return (
-      <View style={styles.centerContainer}>
-        <Text style={styles.loadingSub}>Loading inspection report...</Text>
-      </View>
+      <LoadingInspectionAnimation
+        message="Compiling Certified Report..."
+        subMessage="Formatting 22-page document & evidence"
+        dark={true}
+      />
     );
   }
 

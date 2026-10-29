@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
   ViewStyle,
   TextStyle,
+  StyleProp,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors, Spacing, Typography } from '../../theme/colors';
@@ -118,7 +119,7 @@ export const Button: React.FC<ButtonProps> = ({
 // -------------------------------------------------------------------------
 export const Card: React.FC<{
   children: React.ReactNode;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   onPress?: () => void;
 }> = ({ children, style, onPress }) => {
   if (onPress) {
@@ -200,6 +201,8 @@ export const StatCard: React.FC<{
   accentColor?: string;
   icon?: React.ReactNode;
   iconBgColor?: string;
+  dark?: boolean;
+  style?: StyleProp<ViewStyle>;
   onPress?: () => void;
 }> = ({
   title,
@@ -208,23 +211,44 @@ export const StatCard: React.FC<{
   accentColor = Colors.primary,
   icon,
   iconBgColor = Colors.slate100,
+  dark = false,
+  style,
   onPress,
 }) => {
   return (
-    <Card onPress={onPress} style={styles.statCard}>
+    <Card
+      onPress={onPress}
+      style={[
+        styles.statCard,
+        dark && styles.statCardDark,
+        style,
+      ]}
+    >
       <View style={styles.statCardHeader}>
-        <Text style={styles.statCardTitle}>{title}</Text>
+        <Text style={[styles.statCardTitle, dark && styles.textWhite]}>{title}</Text>
         {icon ? (
-          <View style={[styles.statIconBadge, { backgroundColor: iconBgColor }]}>
+          <View
+            style={[
+              styles.statIconBadge,
+              { backgroundColor: iconBgColor },
+              dark && styles.statIconBadgeDark,
+            ]}
+          >
             {icon}
           </View>
         ) : null}
       </View>
       <Text style={[styles.statCardValue, { color: accentColor }]}>{value}</Text>
       <View style={styles.statFooterRow}>
-        {subtitle ? <Text style={styles.statCardSub}>{subtitle}</Text> : null}
+        {subtitle ? (
+          <Text style={[styles.statCardSub, dark && styles.statCardSubDark]}>{subtitle}</Text>
+        ) : null}
         {onPress ? (
-          <Ionicons name="chevron-forward" size={14} color={Colors.slate500} />
+          <Ionicons
+            name="chevron-forward"
+            size={14}
+            color={dark ? '#FFB800' : Colors.slate500}
+          />
         ) : null}
       </View>
     </Card>
@@ -395,4 +419,23 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#0F172A',
   },
+  statCardDark: {
+    backgroundColor: '#0F172A',
+    borderColor: '#1E293B',
+    borderWidth: 1.5,
+  },
+  textWhite: {
+    color: '#FFFFFF',
+  },
+  statIconBadgeDark: {
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  statCardSubDark: {
+    color: '#94A3B8',
+    fontWeight: '600',
+  },
 });
+
+export { IntroSplashAnimation } from './IntroSplashAnimation';
+export { LoadingInspectionAnimation } from './LoadingInspectionAnimation';

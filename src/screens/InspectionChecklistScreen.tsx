@@ -25,11 +25,12 @@ import {
   InspectionItemResult,
 } from '../types';
 import { Colors, Spacing, Typography } from '../theme/colors';
-import { ProgressBar, Button } from '../components/common';
+import { ProgressBar, Button, LoadingInspectionAnimation } from '../components/common';
 import { ChecklistRow } from '../components/checklist/ChecklistRow';
 import { LocalDB } from '../services/storage/localDatabase';
 import { ImageService } from '../services/storage/imageService';
 import { calculateInspectionMetrics } from '../utils/inspectionCalculations';
+import { useSmartNavigation } from '../utils/useSmartNavigation';
 
 interface InspectionChecklistScreenProps {
   inspectionId: string;
@@ -42,6 +43,7 @@ export const InspectionChecklistScreen: React.FC<InspectionChecklistScreenProps>
   onNavigateToSummary,
   onBack,
 }) => {
+  const panHandlers = useSmartNavigation(onBack);
   const [inspection, setInspection] = useState<Inspection | null>(null);
   const [selectedCategoryCode, setSelectedCategoryCode] = useState<string>('EXT');
   const [savingStatus, setSavingStatus] = useState<string>('Saved');
@@ -60,9 +62,11 @@ export const InspectionChecklistScreen: React.FC<InspectionChecklistScreenProps>
 
   if (!inspection) {
     return (
-      <View style={styles.centerContainer}>
-        <Text style={styles.loadingText}>Loading inspection checklist...</Text>
-      </View>
+      <LoadingInspectionAnimation
+        message="Loading 336-Point Inspection Checklist..."
+        subMessage="Preparing categories & checklist items"
+        dark={true}
+      />
     );
   }
 
@@ -185,12 +189,12 @@ export const InspectionChecklistScreen: React.FC<InspectionChecklistScreenProps>
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} {...panHandlers}>
       {/* Workshop Top Header */}
       <View style={styles.topHeader}>
         <View style={styles.topHeaderRow}>
-          <TouchableOpacity onPress={onBack} style={styles.backBtn}>
-            <Ionicons name="arrow-back" size={22} color={Colors.white} />
+          <TouchableOpacity onPress={onBack} activeOpacity={0.7} style={styles.backBtn}>
+            <Ionicons name="arrow-back" size={20} color="#FFB800" />
           </TouchableOpacity>
           <View style={styles.topHeaderTitles}>
             <Text style={styles.reportIdText}>
@@ -333,10 +337,12 @@ const styles = StyleSheet.create({
     fontSize: Typography.sizes.sm,
   },
   topHeader: {
-    backgroundColor: Colors.slate900,
+    backgroundColor: '#080C14',
     paddingTop: Spacing.md,
     paddingHorizontal: Spacing.md,
     paddingBottom: Spacing.md,
+    borderBottomWidth: 2,
+    borderBottomColor: '#FFB800',
   },
   topHeaderRow: {
     flexDirection: 'row',
@@ -344,20 +350,29 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   backBtn: {
-    padding: 6,
-    marginRight: 6,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#181E29',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: '#334155',
   },
   topHeaderTitles: {
     flex: 1,
   },
   reportIdText: {
-    fontSize: Typography.sizes.sm,
-    fontWeight: Typography.weights.bold,
-    color: Colors.white,
+    fontSize: 15,
+    fontWeight: '900',
+    color: '#FFFFFF',
   },
   vehicleSubtitle: {
-    fontSize: Typography.sizes.xs,
-    color: Colors.slate400,
+    fontSize: 12,
+    color: '#FFB800',
+    fontWeight: '700',
+    marginTop: 1,
   },
   saveStatusBadge: {
     backgroundColor: 'rgba(255, 255, 255, 0.15)',

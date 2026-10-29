@@ -14,9 +14,10 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { Inspection } from '../types';
 import { Colors, Spacing, Typography } from '../theme/colors';
-import { Card, Button, StatusBadge } from '../components/common';
+import { Card, Button, StatusBadge, LoadingInspectionAnimation } from '../components/common';
 import { generateAndShareInspectionPdf } from '../services/reporting/generatePdfReport';
 import { calculateInspectionMetrics } from '../utils/inspectionCalculations';
+import { useSmartNavigation } from '../utils/useSmartNavigation';
 
 interface ReportViewScreenProps {
   inspection: Inspection;
@@ -30,6 +31,7 @@ export const ReportViewScreen: React.FC<ReportViewScreenProps> = ({
   const [generating, setGenerating] = useState(false);
   const [lastPdfUri, setLastPdfUri] = useState<string | null>(null);
 
+  const panHandlers = useSmartNavigation(onBack);
   const metrics = calculateInspectionMetrics(inspection.results);
 
   const handleSharePdf = async () => {
@@ -56,19 +58,32 @@ export const ReportViewScreen: React.FC<ReportViewScreenProps> = ({
     }
   };
 
+  if (generating) {
+    return (
+      <LoadingInspectionAnimation
+        message="Generating 22-Page PDF Report..."
+        subMessage="Embedding vehicle photographs & scoring breakdown"
+        dark={true}
+      />
+    );
+  }
+
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
+    <View style={styles.container} {...panHandlers}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={onBack} style={styles.backBtn}>
-          <Ionicons name="arrow-back" size={22} color={Colors.white} />
+        <TouchableOpacity onPress={onBack} activeOpacity={0.7} style={styles.backBtn}>
+          <Ionicons name="arrow-back" size={20} color="#FFB800" />
         </TouchableOpacity>
         <View style={styles.headerTitles}>
+          <Text style={styles.headerBrandTag}>Z9 AUTOMOTIVE CERTIFIED</Text>
           <Text style={styles.headerTitle}>Official Inspection Report</Text>
           <Text style={styles.headerSub}>{inspection.reportId}</Text>
         </View>
         <StatusBadge status={inspection.status} />
       </View>
+
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.scrollContent}>
 
       {/* Report Info Card */}
       <Card style={styles.reportCard}>
@@ -150,7 +165,8 @@ export const ReportViewScreen: React.FC<ReportViewScreenProps> = ({
           </View>
         ) : null}
       </Card>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -164,28 +180,46 @@ const styles = StyleSheet.create({
     paddingBottom: Spacing.xxxl,
   },
   header: {
-    backgroundColor: Colors.slate900,
+    backgroundColor: '#080C14',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: Spacing.md,
-    borderRadius: 8,
-    marginBottom: Spacing.md,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: 12,
+    borderBottomWidth: 2,
+    borderBottomColor: '#FFB800',
   },
   backBtn: {
-    padding: 6,
-    marginRight: 8,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#181E29',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+    borderWidth: 1,
+    borderColor: '#334155',
   },
   headerTitles: {
     flex: 1,
   },
+  headerBrandTag: {
+    fontSize: 9,
+    fontWeight: '900',
+    color: '#FFB800',
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+  },
   headerTitle: {
-    fontSize: Typography.sizes.base,
-    fontWeight: Typography.weights.bold,
-    color: Colors.white,
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    letterSpacing: 0.3,
   },
   headerSub: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate400,
+    color: '#94A3B8',
+    fontWeight: '600',
+    marginTop: 1,
   },
   reportCard: {
     padding: Spacing.xl,

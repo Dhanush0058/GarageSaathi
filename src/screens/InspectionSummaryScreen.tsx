@@ -15,9 +15,10 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { Inspection, InspectionItemResult } from '../types';
 import { Colors, Spacing, Typography } from '../theme/colors';
-import { Card, Button, ProgressBar, StatusBadge } from '../components/common';
+import { Card, Button, ProgressBar, StatusBadge, LoadingInspectionAnimation } from '../components/common';
 import { LocalDB } from '../services/storage/localDatabase';
 import { calculateInspectionMetrics } from '../utils/inspectionCalculations';
+import { useSmartNavigation } from '../utils/useSmartNavigation';
 
 interface InspectionSummaryScreenProps {
   inspectionId: string;
@@ -32,6 +33,7 @@ export const InspectionSummaryScreen: React.FC<InspectionSummaryScreenProps> = (
   onNavigateToReport,
   onBack,
 }) => {
+  const panHandlers = useSmartNavigation(onBack);
   const [inspection, setInspection] = useState<Inspection | null>(null);
 
   const loadData = async () => {
@@ -45,9 +47,11 @@ export const InspectionSummaryScreen: React.FC<InspectionSummaryScreenProps> = (
 
   if (!inspection) {
     return (
-      <View style={styles.centerContainer}>
-        <Text style={styles.loadingText}>Loading inspection scorecard...</Text>
-      </View>
+      <LoadingInspectionAnimation
+        message="Generating Scorecard & Summary..."
+        subMessage="Aggregating 336 inspection checkpoints"
+        dark={true}
+      />
     );
   }
 
@@ -98,11 +102,11 @@ export const InspectionSummaryScreen: React.FC<InspectionSummaryScreenProps> = (
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent} {...panHandlers}>
       {/* Top Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={onBack} style={styles.backBtn}>
-          <Ionicons name="arrow-back" size={22} color={Colors.white} />
+        <TouchableOpacity onPress={onBack} activeOpacity={0.7} style={styles.backBtn}>
+          <Ionicons name="arrow-back" size={20} color="#FFB800" />
         </TouchableOpacity>
         <View style={styles.headerTitles}>
           <Text style={styles.headerTitle}>Inspection Summary</Text>
@@ -351,28 +355,41 @@ const styles = StyleSheet.create({
     color: Colors.slate500,
   },
   header: {
-    backgroundColor: Colors.slate900,
+    backgroundColor: '#080C14',
     flexDirection: 'row',
     alignItems: 'center',
     padding: Spacing.md,
-    borderRadius: 8,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: '#1E293B',
+    borderBottomWidth: 2.5,
+    borderBottomColor: '#FFB800',
     marginBottom: Spacing.md,
   },
   backBtn: {
-    padding: 6,
-    marginRight: 8,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: '#181E29',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: '#334155',
   },
   headerTitles: {
     flex: 1,
   },
   headerTitle: {
-    fontSize: Typography.sizes.base,
-    fontWeight: Typography.weights.bold,
-    color: Colors.white,
+    fontSize: 16,
+    fontWeight: '900',
+    color: '#FFFFFF',
   },
   headerSub: {
     fontSize: Typography.sizes.xs,
-    color: Colors.slate400,
+    color: '#FFB800',
+    fontWeight: '700',
+    marginTop: 1,
   },
   metaCard: {
     marginBottom: Spacing.md,

@@ -130,7 +130,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Live Sync Status & Scope Filter */}
       <View style={styles.syncHeaderRow}>
         <View style={styles.syncBadge}>
-          <View style={styles.syncPulseDot} />
           <Text style={styles.syncText}>Live Workshop Sync</Text>
           <Text style={styles.syncTime}>• {lastSyncTime}</Text>
         </View>
@@ -386,12 +385,6 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderWidth: 1,
     borderColor: '#86EFAC',
-  },
-  syncPulseDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 3.5,
-    backgroundColor: '#16A34A',
   },
   syncText: {
     fontSize: 10,
